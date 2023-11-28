@@ -16,6 +16,10 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/MainWindow.fxml"));
         Parent root = loader.load();
         primaryStage.setScene(new Scene(root));
+
+        primaryStage.setTitle("Budget Spotify");
+        primaryStage.setResizable(false);
+        
         primaryStage.show();
     }
 }

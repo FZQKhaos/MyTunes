@@ -2,9 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -22,7 +24,7 @@
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Text>
-                  <TableView prefHeight="411.0" prefWidth="255.0">
+                  <TableView fx:id="tblPlaylist" prefHeight="411.0" prefWidth="255.0">
                     <columns>
                       <TableColumn prefWidth="115.19998180866241" text="Name" />
                       <TableColumn minWidth="0.0" prefWidth="48.800018310546875" text="Songs" />
@@ -38,14 +40,14 @@
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Text>
-                  <TableView prefHeight="412.0" prefWidth="147.0">
+                  <TableView fx:id="tblSonginPlaylist" prefHeight="412.0" prefWidth="147.0">
                     <columns>
                       <TableColumn prefWidth="161.6000061273575" text="Name" />
                     </columns>
                   </TableView>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="⬅">
+            <Button mnemonicParsing="false" onAction="#onActionAddSongToPlatlist" prefHeight="26.0" prefWidth="57.0" text="⬅">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -57,11 +59,11 @@
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Text>
-                  <TableView prefHeight="411.0" prefWidth="311.0">
+                  <TableView fx:id="tblSongs" prefHeight="411.0" prefWidth="311.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Title" />
                       <TableColumn prefWidth="75.0" text="Artists" />
-                        <TableColumn prefWidth="75.0" text="Category" />
+                        <TableColumn prefWidth="75.0" text="Genre" />
                         <TableColumn prefWidth="96.0" text="Time" />
                     </columns>
                   </TableView>
@@ -71,45 +73,56 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="11.0" layoutY="528.0" prefHeight="42.0" prefWidth="246.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" text="New Playlist" />
-            <Button mnemonicParsing="false" text="Edit Playlist" />
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#onActionNewPlaylist" text="New Playlist" />
+            <Button mnemonicParsing="false" onAction="#onActionEditPlaylist" text="Edit Playlist" />
+            <Button mnemonicParsing="false" onAction="#onActionDeletePlaylist" text="Delete" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="274.0" layoutY="528.0" prefHeight="42.0" prefWidth="162.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" text="⬆" />
-            <Button mnemonicParsing="false" text="⬇" />
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#onActionUpArrow" prefHeight="25.0" prefWidth="35.0" text="⬆" />
+            <Button mnemonicParsing="false" onAction="#onActionDownArrow" prefHeight="25.0" prefWidth="35.0" text="⬇" />
+            <Button mnemonicParsing="false" onAction="#onActionDeletePlaylistSong" text="Delete" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="521.0" layoutY="528.0" prefHeight="42.0" prefWidth="323.0" spacing="25.0">
          <children>
-            <Button mnemonicParsing="false" text="New Song" />
-            <Button mnemonicParsing="false" text="Edit Song" />
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#onActionNewSong" text="New Song" />
+            <Button mnemonicParsing="false" onAction="#onActionEditSong" text="Edit Song" />
+            <Button mnemonicParsing="false" onAction="#onActionDeleteSong" text="Delete" />
             <Button mnemonicParsing="false" text="Close" />
          </children>
       </HBox>
-      <Slider blockIncrement="1.0" layoutX="55.0" layoutY="63.0" />
+      <Slider blockIncrement="1.0" layoutX="55.0" layoutY="63.0" onDragDetected="#onDragVolume" />
       <HBox alignment="CENTER" layoutX="34.0" layoutY="11.0" prefHeight="52.0" prefWidth="182.0" spacing="5.0">
          <children>
-            <Button mnemonicParsing="false" text="⏪">
+            <Button mnemonicParsing="false" onAction="#onActionLeftSkip" text="⏪">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="▶">
+            <Button mnemonicParsing="false" onAction="#onActionPlayPasue" text="▶">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="⏩">
+            <Button mnemonicParsing="false" onAction="#onActionRightSkip" text="⏩">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
          </children>
       </HBox>
+      <TextField fx:id="txtSongSearch" layoutX="608.0" layoutY="65.0" promptText="🔍 Search for song" />
+      <Text layoutX="608.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="44.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Label fx:id="currentSong" alignment="TOP_CENTER" layoutX="376.0" layoutY="40.0" text="current song">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
