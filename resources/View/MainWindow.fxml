@@ -61,10 +61,10 @@
                   </Text>
                   <TableView fx:id="tblSongs" prefHeight="411.0" prefWidth="311.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Title" />
-                      <TableColumn prefWidth="75.0" text="Artists" />
-                        <TableColumn prefWidth="75.0" text="Genre" />
-                        <TableColumn prefWidth="96.0" text="Time" />
+                      <TableColumn fx:id="colTitle" prefWidth="75.0" text="Title" />
+                      <TableColumn fx:id="colArtists" prefWidth="75.0" text="Artists" />
+                        <TableColumn fx:id="colGenre" prefWidth="75.0" text="Genre" />
+                        <TableColumn fx:id="colTime" prefWidth="96.0" text="Time" />
                     </columns>
                   </TableView>
                </children>

@@ -2,15 +2,15 @@ package dk.BE;
 
 public class Song {
 
-    private String name;
+    private String title;
     private String artist;
     private int year;
     private int songLength;
     private String genre;
     private int id;
 
-    public Song(String name, String artist, int year, int songLength, String genre, int id) {
-        this.name = name;
+    public Song(String title, String artist, int year, int songLength, String genre, int id) {
+        this.title = title;
         this.artist = artist;
         this.year = year;
         this.songLength = songLength;
@@ -18,10 +18,9 @@ public class Song {
         this.id = id;
     }
 
-    public Song(String name, String artist, int year, int songLength, String genre){
-        this.name = name;
+    public Song(String title, String artist, int songLength, String genre, int id){
+        this.title = title;
         this.artist = artist;
-        this.year = year;
         this.songLength = songLength;
         this.genre = genre;
     }
@@ -30,12 +29,12 @@ public class Song {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = title;
     }
 
     public String getArtist() {

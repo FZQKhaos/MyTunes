@@ -19,7 +19,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("Budget Spotify");
         primaryStage.setResizable(false);
-        
+
         primaryStage.show();
     }
 }

@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/microsoft_sqlserver_mssql_jdbc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dk/BE/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyJavaFX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyJavaFX.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/BE/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/ISongDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BLL/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/SongManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/SongDAO_DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +140,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Bruger/Desktop/Datamatiker/MyTunes",
+    "last_opened_file_path": "C:/Users/Bruger/Desktop/Datamatiker/MRS-starter",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -218,7 +216,8 @@
       <option name="presentableId" value="Default" />
       <updated>1701080399727</updated>
       <workItem from="1701080401009" duration="3238000" />
-      <workItem from="1701159059476" duration="4797000" />
+      <workItem from="1701159059476" duration="10690000" />
+      <workItem from="1701245047505" duration="2163000" />
     </task>
     <servers />
   </component>
