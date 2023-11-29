@@ -3,26 +3,26 @@ package dk.BE;
 public class Song {
 
     private String title;
-    private String artist;
+    private String artistName;
     private int year;
-    private int songLength;
-    private String genre;
+    private int time;
+    private String genreName;
     private int id;
 
-    public Song(String title, String artist, int year, int songLength, String genre, int id) {
+    public Song(String title, String artistName, int year, int time, String genreName, int id) {
         this.title = title;
-        this.artist = artist;
+        this.artistName = artistName;
         this.year = year;
-        this.songLength = songLength;
-        this.genre = genre;
+        this.time = time;
+        this.genreName = genreName;
         this.id = id;
     }
 
-    public Song(String title, String artist, int songLength, String genre, int id){
+    public Song(String title, String artistName, int time, String genreName, int id){
         this.title = title;
-        this.artist = artist;
-        this.songLength = songLength;
-        this.genre = genre;
+        this.artistName = artistName;
+        this.time = time;
+        this.genreName = genreName;
     }
 
     public int getId() {
@@ -37,12 +37,12 @@ public class Song {
         this.title = title;
     }
 
-    public String getArtist() {
-        return artist;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
     public int getYear() {
@@ -53,19 +53,29 @@ public class Song {
         this.year = year;
     }
 
-    public int getSongLength() {
-        return songLength;
+    public int getTime() {
+        return time;
     }
 
-    public void setSongLength(int songLength) {
-        this.songLength = songLength;
+    public void setTime(int time) {
+        this.time = time;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getGenreName() {
+        return genreName;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
+    }
+
+    public String getConvertedTime() {
+
+        int minutes = (int) time / 60;
+        int seconds = (int) time % 60;
+
+        String formatedTime = String.format("%d:%02d", minutes, seconds);
+
+        return formatedTime;
     }
 }
