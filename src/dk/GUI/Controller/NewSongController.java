@@ -12,16 +12,13 @@ public class NewSongController {
     public Button btnCancel;
 
     public void onActionChoose(ActionEvent event) {
-/*
+        Stage stage = new Stage();
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
-                new ExtensionFilter("Audio Files", ".wav", ".mp3"),
-
-        File selectedFile = fileChooser.showOpenDialog();
-        if (selectedFile != null) {
-            mainStage.display(selectedFile);
-        }*/
+                new FileChooser.ExtensionFilter("Audio Files", ".wav", ".mp3"));
+        fileChooser.showOpenDialog(stage);
     }
 
     public void onActionSave(ActionEvent event) {
