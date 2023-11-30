@@ -53,8 +53,15 @@ public class Song {
         this.year = year;
     }
 
-    public int getTime() {
-        return time;
+    public String getTime() {
+        // duration = seconds from DB
+        int duration = time;
+
+        int minutes = (duration / 60) % 60;
+        int seconds = duration % 60;
+
+        String formatedTime = String.format("%d:%02d", minutes, seconds);
+        return formatedTime;
     }
 
     public void setTime(int time) {
@@ -67,15 +74,5 @@ public class Song {
 
     public void setGenreName(String genreName) {
         this.genreName = genreName;
-    }
-
-    public String getConvertedTime() {
-
-        int minutes = (int) time / 60;
-        int seconds = (int) time % 60;
-
-        String formatedTime = String.format("%d:%02d", minutes, seconds);
-
-        return formatedTime;
     }
 }

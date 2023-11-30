@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/View/NewSongWindow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dk/BLL/util/TimeConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/View/NewSongWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/NewSongWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/BE/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/BLL/SongSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/util/SongSearcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/SongDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +140,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Bruger/Desktop/Datamatiker/MyTunes",
+    "last_opened_file_path": "C:/Users/Bruger/Desktop/Datamatiker/MRS-starter",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -174,19 +173,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dk.javahandson.GUI.Main" />
-      <module name="MyJavaFX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dk.javahandson.GUI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="dk.GUI.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dk.GUI.Main" />
       <module name="MyJavaFX" />
@@ -200,10 +186,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DatabaseConnector" />
+      <item itemvalue="Application.dk.GUI.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.dk.GUI.Main" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.DatabaseConnector" />
       </list>
     </recent_temporary>
@@ -219,7 +208,8 @@
       <workItem from="1701080401009" duration="3238000" />
       <workItem from="1701159059476" duration="10690000" />
       <workItem from="1701245047505" duration="8850000" />
-      <workItem from="1701257390217" duration="955000" />
+      <workItem from="1701257390217" duration="1000000" />
+      <workItem from="1701331303079" duration="10249000" />
     </task>
     <servers />
   </component>

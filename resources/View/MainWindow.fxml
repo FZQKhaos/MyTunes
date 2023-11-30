@@ -90,7 +90,6 @@
             <Button mnemonicParsing="false" onAction="#onActionNewSong" text="New Song" />
             <Button mnemonicParsing="false" onAction="#onActionEditSong" text="Edit Song" />
             <Button mnemonicParsing="false" onAction="#onActionDeleteSong" text="Delete" />
-            <Button mnemonicParsing="false" text="Close" />
          </children>
       </HBox>
       <Slider blockIncrement="1.0" layoutX="55.0" layoutY="63.0" onDragDetected="#onDragVolume" />

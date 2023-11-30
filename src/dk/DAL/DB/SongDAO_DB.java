@@ -27,7 +27,10 @@ public class SongDAO_DB implements ISongDataAccess {
         try (Connection conn = databaseConnector.getConnection();
              Statement stmt = conn.createStatement()){
 
-            String sql = "SELECT Songs.Id, Songs.Title, Songs.Time, A.ArtistName, G.GenreName FROM Songs JOIN dbo.Artist A on A.Id = Songs.ArtistId JOIN dbo.Genre G on G.Id = Songs.GenreId;";
+            String sql = "SELECT Songs.Id, Songs.Title, Songs.Time, A.ArtistName, G.GenreName " +
+                    "FROM Songs " +
+                    "JOIN dbo.Artist A on A.Id = Songs.ArtistId " +
+                    "JOIN dbo.Genre G on G.Id = Songs.GenreId;";
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()){
