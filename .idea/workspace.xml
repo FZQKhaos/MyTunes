@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BLL/util/TimeConverter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +138,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Bruger/Desktop/Datamatiker/MRS-starter",
+    "last_opened_file_path": "C:/Users/valha/Desktop/Datamatiker/Projects/MyTunes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -144,11 +146,13 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\valha\Desktop\Datamatiker\Projects\MyTunes\config" />
       <recent name="C:\Users\Bruger\Desktop\Datamatiker\MyTunes\config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -206,6 +210,10 @@
       <workItem from="1701245047505" duration="8850000" />
       <workItem from="1701257390217" duration="1000000" />
       <workItem from="1701331303079" duration="11153000" />
+      <workItem from="1701364843687" duration="394000" />
+      <workItem from="1701365262321" duration="3487000" />
+      <workItem from="1701369877014" duration="4131000" />
+      <workItem from="1701417732050" duration="308000" />
     </task>
     <servers />
   </component>
