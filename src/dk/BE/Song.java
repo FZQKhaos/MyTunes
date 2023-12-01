@@ -3,26 +3,38 @@ package dk.BE;
 public class Song {
 
     private String title;
-    private String artistName;
+    private String artistName, filePath;
     private int year;
     private int time;
     private String genreName;
     private int id;
 
-    public Song(String title, String artistName, int year, int time, String genreName, int id) {
+
+    public Song(String title, String artistName, int year, int time, String genreName, int id, String filePath) {
         this.title = title;
         this.artistName = artistName;
         this.year = year;
         this.time = time;
         this.genreName = genreName;
         this.id = id;
+        this.filePath = filePath;
+    }
+    public Song(String title, String artistName, int time, String genreName, int id, String filePath) {
+        this.title = title;
+        this.artistName = artistName;
+      //  this.year = year;
+        this.time = time;
+        this.genreName = genreName;
+        this.id = id;
+        this.filePath = filePath;
     }
 
-    public Song(String title, String artistName, int time, String genreName, int id){
+    public Song(String title, String artistName, int time, String genreName, String filePath){
         this.title = title;
         this.artistName = artistName;
         this.time = time;
         this.genreName = genreName;
+        this.filePath = filePath;
     }
 
     public int getId() {
@@ -47,6 +59,10 @@ public class Song {
 
     public int getYear() {
         return year;
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 
     public void setYear(int year) {

@@ -8,7 +8,7 @@ public interface ISongDataAccess {
 
     public List<Song> getALlSongs();
 
-    public Song createSong(Song song);
+    public Song createSong(Song song) throws Exception;
 
     public void updateSong(Song song);
 

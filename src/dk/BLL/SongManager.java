@@ -18,4 +18,8 @@ public class SongManager {
     public List<Song> getAllSongs(){
         return songDAO.getALlSongs();
     }
+
+    public void createSong(Song song) throws Exception {
+        songDAO.createSong(song);
+    }
 }
