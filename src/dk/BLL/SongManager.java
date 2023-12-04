@@ -1,6 +1,7 @@
 package dk.BLL;
 
 import dk.BE.Song;
+import dk.BLL.util.SongSearcher;
 import dk.DAL.DB.SongDAO_DB;
 import dk.DAL.ISongDataAccess;
 
@@ -11,8 +12,16 @@ public class SongManager {
 
     private ISongDataAccess songDAO;
 
+    private SongSearcher songSearcher = new SongSearcher();
+
     public SongManager() throws IOException {
         songDAO = new SongDAO_DB();
+    }
+
+    public List<Song> searchSongs(String query){
+        List<Song> allSongs = getAllSongs();
+        List<Song> songResult = songSearcher.search(allSongs, query);
+        return songResult;
     }
 
     public List<Song> getAllSongs(){

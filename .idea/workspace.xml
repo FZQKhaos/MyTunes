@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BLL/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/SongManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BLL/util/SongSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/util/SongSearcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/SongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/SongModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

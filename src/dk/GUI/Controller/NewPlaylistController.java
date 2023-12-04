@@ -1,5 +1,6 @@
 package dk.GUI.Controller;
 
+import dk.BE.Playlist;
 import dk.GUI.Model.PlaylistModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,8 @@ public class NewPlaylistController implements Initializable{
     public Button btnSave, btnCancel;
 
     private PlaylistModel playlistModel;
+
+    private MainController mainController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,10 +45,17 @@ public class NewPlaylistController implements Initializable{
 
         Stage stage = (Stage) btnSave.getScene().getWindow();
         stage.close();
+
+        Playlist playlist = new Playlist(name, time, songs);
+        mainController.addPlaylistToTable(playlist);
     }
 
     public void onActionCancel(ActionEvent actionEvent) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
+    }
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 }

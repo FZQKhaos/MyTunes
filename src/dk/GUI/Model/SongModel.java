@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class SongModel {
 
@@ -23,6 +24,12 @@ public class SongModel {
 
     public ObservableList<Song> getObservableSongs(){
         return songsToBeViewed;
+    }
+
+    public void searchSong(String query){
+        List<Song> searchResult = songManager.searchSongs(query);
+        songsToBeViewed.clear();
+        songsToBeViewed.addAll(searchResult);
     }
 
     public void createSong(String title, String artist, String time, String genre, String filePath) throws Exception {

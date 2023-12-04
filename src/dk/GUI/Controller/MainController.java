@@ -25,25 +25,25 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
-    public TableColumn<Song, String> colTitle;
+    private TableColumn<Song, String> colTitle;
 
     @FXML
-    public TableColumn<Song, String> colArtists;
+    private TableColumn<Song, String> colArtists;
 
     @FXML
-    public TableColumn<Song, String> colGenre;
+    private TableColumn<Song, String> colGenre;
 
     @FXML
-    public TableColumn<Song, Integer> colTime;
+    private TableColumn<Song, Integer> colTime;
 
     @FXML
-    public TableColumn<Playlist, String> colPName;
+    private TableColumn<Playlist, String> colPName;
 
     @FXML
-    public TableColumn<Playlist, Integer> colPSongs;
+    private TableColumn<Playlist, Integer> colPSongs;
 
     @FXML
-    public TableColumn<Playlist, Integer> colPTime;
+    private TableColumn<Playlist, Integer> colPTime;
 
     @FXML
     private Label currentSong;
@@ -87,6 +87,16 @@ public class MainController implements Initializable {
 
         tblSongs.setItems(songModel.getObservableSongs());
         tblPlaylist.setItems(playlistModel.getObservablePlaylists());
+
+        // Searchbar
+        txtSongSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                songModel.searchSong(newValue);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
     }
 
     @FXML
@@ -144,6 +154,9 @@ public class MainController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
 
+        NewPlaylistController newPlaylistController = loader.getController();
+        newPlaylistController.setMainController(this); //en reference til MainController
+
         stage.setTitle("New/Edit Playlist");
 
         stage.show();
@@ -187,6 +200,10 @@ public class MainController implements Initializable {
     //Tilføjelse af en sang til TableView
     public void addSongToTable(Song song){ //den metode tilføjer sang til TableView
         tblSongs.getItems().add(song);
+    }
+
+    public void addPlaylistToTable(Playlist playlist){
+        tblPlaylist.getItems().add(playlist);
     }
 
 }
