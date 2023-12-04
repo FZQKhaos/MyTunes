@@ -1,5 +1,6 @@
 package dk.GUI.Controller;
 
+import dk.BE.Song;
 import dk.GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +22,12 @@ public class NewSongController implements Initializable {
     @FXML
     public TextField txtTitle, txtArtist, txtTime, txtFile;
 
+    private MainController mainController;
+
     private SongModel songModel;
+    public void setMainController(MainController mainController){
+        this.mainController = mainController;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,6 +62,17 @@ public class NewSongController implements Initializable {
         //public Song(String title, String artistName, int time, String genreName)
         //Song song = new Song(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), );
         songModel.createSong(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), "genre", txtFile.getText());
+        String title = txtTitle.getText();
+        String artist = txtArtist.getText();
+        int time = Integer.parseInt(txtTime.getText());
+        String file = txtFile.getText();
+
+        //når der oprettes ny sang og tilføjes til tabellen i MainController
+        Song newSong = new Song(title,artist,time,file,"genre");
+        mainController.addSongToTable(newSong); //opdatering af tableView i MainController
+
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
 
     }
 

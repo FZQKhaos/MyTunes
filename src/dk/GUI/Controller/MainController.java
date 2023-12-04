@@ -153,6 +153,10 @@ public class MainController implements Initializable {
     public void onActionNewSong(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewSongWindow.fxml"));
         Parent root = loader.load();
+
+        NewSongController newSongController = loader.getController();
+        newSongController.setMainController(this); //en reference til MainController
+
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
 
@@ -180,7 +184,10 @@ public class MainController implements Initializable {
     public void onDragVolume(MouseEvent event) {
 
     }
-
+    //Tilføjelse af en sang til TableView
+    public void addSongToTable(Song song){ //den metode tilføjer sang til TableView
+        tblSongs.getItems().add(song);
+    }
 
 }
 
