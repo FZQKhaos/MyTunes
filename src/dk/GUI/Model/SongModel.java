@@ -5,6 +5,8 @@ import dk.BLL.SongManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
+import java.io.File;
 import java.io.IOException;
 
 public class SongModel {
@@ -33,9 +35,14 @@ public class SongModel {
             //throw new Exception("Tiden er ikke korrekt", e);
            // throws new IOException(e);
         }
-        Song song = new Song(title, artist, newTime, genre, filePath);
+        Song song = new Song(title, artist, newTime, filePath, genre);
         songManager.createSong(song);
+        songsToBeViewed.add(song);
 
     }
 
+    public void deleteSong(Song selectedSong) {
+        songManager.deleteSong(selectedSong);
+        songsToBeViewed.remove(selectedSong);
+    }
 }

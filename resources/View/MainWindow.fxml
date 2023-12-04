@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="619.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.GUI.Controller.MainController">
+<AnchorPane prefHeight="619.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.GUI.Controller.MainController">
    <children>
       <HBox alignment="CENTER" layoutY="90.0" prefHeight="438.0" prefWidth="859.0" spacing="15.0">
          <children>
@@ -26,9 +26,9 @@
                   </Text>
                   <TableView fx:id="tblPlaylist" prefHeight="411.0" prefWidth="255.0">
                     <columns>
-                      <TableColumn prefWidth="115.19998180866241" text="Name" />
-                      <TableColumn minWidth="0.0" prefWidth="48.800018310546875" text="Songs" />
-                        <TableColumn prefWidth="91.19998168945312" text="Time" />
+                      <TableColumn fx:id="colPName" prefWidth="115.19998180866241" text="Name" />
+                      <TableColumn fx:id="colPSongs" minWidth="0.0" prefWidth="48.800018310546875" text="Songs" />
+                        <TableColumn fx:id="colPTime" prefWidth="91.19998168945312" text="Time" />
                     </columns>
                   </TableView>
                </children>
@@ -47,7 +47,7 @@
                   </TableView>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#onActionAddSongToPlatlist" prefHeight="26.0" prefWidth="57.0" text="⬅">
+            <Button mnemonicParsing="false" onAction="#onActionAddSongToPlaylist" prefHeight="26.0" prefWidth="57.0" text="⬅">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

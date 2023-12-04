@@ -22,4 +22,8 @@ public class SongManager {
     public void createSong(Song song) throws Exception {
         songDAO.createSong(song);
     }
+
+    public void deleteSong(Song selectedSong) {
+        songDAO.deleteSong(selectedSong);
+    }
 }

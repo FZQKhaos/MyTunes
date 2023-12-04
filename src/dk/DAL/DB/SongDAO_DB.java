@@ -1,5 +1,6 @@
 package dk.DAL.DB;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dk.BE.Song;
 import dk.DAL.ISongDataAccess;
 
@@ -28,7 +29,7 @@ public class SongDAO_DB implements ISongDataAccess {
            //         "FROM Songs " +
            //         "JOIN dbo.Artist A on A.Id = Songs.ArtistId " +
            //         "JOIN dbo.Genre G on G.Id = Songs.GenreId;";
-            String sql = "SELECT * FROM Songs";
+            String sql = "SELECT * FROM dbo.Songs";
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()){
@@ -41,7 +42,7 @@ public class SongDAO_DB implements ISongDataAccess {
                 String filePath = rs.getString("FilePath");
 
                 //Song song = new Song(title, artist, songLength, genre, id);
-                Song song = new Song(title, artist, songLength, genre, id, filePath);
+                Song song = new Song(title, id, artist, songLength, genre, filePath);
                 allSongs.add(song);
             }
             return allSongs;
@@ -51,7 +52,7 @@ public class SongDAO_DB implements ISongDataAccess {
     }
 
     @Override
-    public Song createSong(Song song) throws Exception {
+    public Song createSong(Song song) {
         String sql = "INSERT INTO dbo.Songs (Title, Artist, Time, Filepath, Genre) VALUES (?,?,?,?, ?);";
 
         try (Connection conn = databaseConnector.getConnection()) {
@@ -60,10 +61,10 @@ public class SongDAO_DB implements ISongDataAccess {
 
             // Bind parameters
             stmt.setString(1, song.getTitle());
-            stmt.setString(2, song.getArtistName());
-            stmt.setInt(3, 34);
+            stmt.setString(2, song.getArtist());
+            stmt.setInt(3, song.getTime());
             stmt.setString(4, song.getFilePath());
-            stmt.setString(5, song.getGenreName());
+            stmt.setString(5, song.getGenre());
 
             // Run the specified SQL statement
             stmt.executeUpdate();
@@ -77,16 +78,14 @@ public class SongDAO_DB implements ISongDataAccess {
             }
 
             // public Song(String title, String artistName, int time, String genreName, int id, String filePath) {
-            // Create movie object and send up the layers
 
-            Song createdSong = new Song(song.getTitle(), song.getArtistName(), 45, song.getGenreName(), id, song.getFilePath());
+            // Create Song object and send up the layers
+
+            Song createdSong = new Song(song.getTitle(), id, song.getArtist(), 45, song.getGenre(), song.getFilePath());
 
             return createdSong;
-        }
-        catch (SQLException ex)
-        {
-            ex.printStackTrace();
-            throw new Exception("Could not create movie", ex);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -97,6 +96,19 @@ public class SongDAO_DB implements ISongDataAccess {
 
     @Override
     public void deleteSong(Song song) {
+        String sql = "DELETE FROM dbo.Songs WHERE Id = (?);";
 
+        try (Connection conn = databaseConnector.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+
+            // Bind parameters
+            stmt.setInt(1, song.getId());
+
+            // Run the specified SQL statement
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

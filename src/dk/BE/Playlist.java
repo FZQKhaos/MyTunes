@@ -3,15 +3,21 @@ package dk.BE;
 public class Playlist {
 
     private String name;
-    private int playlistLength;
+    private int time;
     private int songs;
     private int id;
 
-    public Playlist(String name, int playlistLength, int songs, int id) {
+    public Playlist(String name, int time, int songs, int id) {
         this.name = name;
-        this.playlistLength = playlistLength;
+        this.time = time;
         this.songs = songs;
         this.id = id;
+    }
+
+    public Playlist(String name, int time, int songs){
+        this.name = name;
+        this.time = time;
+        this.songs = songs;
     }
 
     public String getName() {
@@ -22,12 +28,12 @@ public class Playlist {
         this.name = name;
     }
 
-    public int getPlaylistLength() {
-        return playlistLength;
+    public int getTime() {
+        return time;
     }
 
-    public void setPlaylistLength(int playlistLength) {
-        this.playlistLength = playlistLength;
+    public void setTime(int time) {
+        this.time = time;
     }
 
     public int getSongs() {

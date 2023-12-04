@@ -1,6 +1,5 @@
 package dk.GUI.Controller;
 
-import dk.BE.Song;
 import dk.GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,8 +47,9 @@ public class NewSongController implements Initializable {
             if (file != null){
                 txtFile.setText(file.getAbsolutePath());
             }
-
     }
+
+
 
     public void onActionSave(ActionEvent event) throws Exception {
         //public TextField txtTitle, txtArtist, txtTime, txtFile;
@@ -57,13 +57,10 @@ public class NewSongController implements Initializable {
         //Song song = new Song(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), );
         songModel.createSong(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), "genre", txtFile.getText());
 
-
     }
 
     public void onActionCancel(ActionEvent event) {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
-
-
 }
