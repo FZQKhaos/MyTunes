@@ -44,6 +44,7 @@ public class NewSongController implements Initializable {
 
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Resource File");
+            fileChooser.setInitialDirectory(new File("Songs"));
             fileChooser.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3"),
                     new FileChooser.ExtensionFilter("PDF Files", ".pdf"));
