@@ -35,7 +35,10 @@ public class MediaPlayer {
         }
     }
 
-    //Skift filePath i DB til kun at være navn.mp3 kan være det hjælper på det med at afspille filen
+    /**
+     * Skift filePath i DB til kun at være navn.mp3 kan være det hjælper på det med at afspille filen
+     */
+
 
     /*
     public void playMusic(String filePath){
