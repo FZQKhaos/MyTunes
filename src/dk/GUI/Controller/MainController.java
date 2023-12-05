@@ -5,20 +5,18 @@ import dk.BE.Song;
 import dk.GUI.Model.PlaylistModel;
 import dk.GUI.Model.SongModel;
 import javafx.beans.Observable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,7 +25,13 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    private MediaPlayer mediaPlayer;
+    @FXML
+    public Button btnPlayPause;
+    @FXML
+    public Slider volumeSlider;
+    @FXML
+    public Button btnLeftSkip, btnRightSkip;
+
 
     @FXML
     private TableColumn<Song, String> colTitle;
@@ -66,8 +70,13 @@ public class MainController implements Initializable {
     private TextField txtSongSearch;
 
     private SongModel songModel;
-
     private PlaylistModel playlistModel;
+    private MediaPlayer mediaPlayer;
+
+    private StringProperty currentSongDetails = new SimpleStringProperty();
+
+    private int currentSongIndex = 0;
+
 
     public MainController() {
         try {
@@ -102,6 +111,15 @@ public class MainController implements Initializable {
             }
         });
 
+        this.mediaPlayer = new MediaPlayer();
+        mediaPlayer.volumeBar(volumeSlider);
+        volumeSlider.setValue(100);
+
+        //apfspiller tideligere og næste sang i tableView
+        btnLeftSkip.setOnAction(event -> playPreviousSong());
+        btnRightSkip.setOnAction(event -> playNextSong());
+
+        currentSong.textProperty().bind(currentSongDetails);
     }
 
     @FXML
@@ -185,7 +203,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void onActionLeftSkip(ActionEvent event) {
-
+        playPreviousSong();
     }
 
     @FXML
@@ -206,33 +224,43 @@ public class MainController implements Initializable {
 
     @FXML
     public void onActionPlayPause(ActionEvent event) {
-
-        Song selectedSong = tblSongs.getSelectionModel().getSelectedItem();
-
-        if (selectedSong != null) {
-            String filePath = selectedSong.getFilePath().replaceAll(" ", "%20");
-
-            if (filePath != null && !filePath.isEmpty()) {
-
-
-                // Add the "file://" scheme
-                String mediaUri = "file://" + filePath;
-
-                // Create the Media object with the encoded file path
-                Media media = new Media(mediaUri);
-                mediaPlayer = new MediaPlayer(media);
-
-                mediaPlayer.play();
-
-                currentSong.setText(selectedSong.getArtist() + "   -   " + selectedSong.getTitle());
+            Song selectedSong = tblSongs.getSelectionModel().getSelectedItem();
+            if (selectedSong != null) {
+                if (mediaPlayer.isPlaying()) {
+                    btnPlayPause.setText("▶");
+                    mediaPlayer.pauseMusic();
+                } else {
+                    playSong(selectedSong);
+                }
             }
+        }
+    private void playSong (Song song){
+        currentSongIndex = songModel.getObservableSongs().indexOf(song);
+        if (song != null && mediaPlayer != null){
+            System.out.println("Fejl" + song.getFilePath());
+            mediaPlayer.playMusic(song.getFilePath());
+            currentSongDetails.set("Currently Playing: " + song.getTitle() + " - " + song.getArtist());
+            btnPlayPause.setText("||");
         }
     }
 
+    private void playPreviousSong(){
+        if (!songModel.getObservableSongs().isEmpty() && currentSongIndex > 0) {
+            currentSongIndex--;
+            playSong(songModel.getObservableSongs().get(currentSongIndex));
+        }
+    }
+
+    private void playNextSong() {
+        if (!songModel.getObservableSongs().isEmpty() && currentSongIndex < songModel.getObservableSongs().size() - 1) {
+            currentSongIndex++;
+            playSong(songModel.getObservableSongs().get(currentSongIndex));
+        }
+    }
 
     @FXML
     public void onActionRightSkip(ActionEvent event) {
-
+        playNextSong();
     }
 
     @FXML
@@ -240,10 +268,6 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    public void onDragVolume(MouseEvent event) {
-
-    }
     //Tilføjelse af en sang til TableView
     public void addSongToTable(Song song){ //den metode tilføjer sang til TableView
         tblSongs.getItems().add(song);

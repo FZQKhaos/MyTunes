@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,56 +69,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="alwaysUpdateSnapshots" value="false" />
-        <option name="checksumPolicy" value="NOT_SET" />
-        <option name="emulateTerminal" value="false" />
-        <option name="failureBehavior" value="NOT_SET" />
-        <option name="localRepository" value="" />
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-        <option name="nonRecursive" value="false" />
-        <option name="outputLevel" value="INFO" />
-        <option name="printErrorStackTraces" value="false" />
-        <option name="showDialogWithAdvancedSettings" value="false" />
-        <option name="threads" />
-        <option name="useMavenConfig" value="true" />
-        <option name="usePluginRegistry" value="false" />
-        <option name="userSettingsFile" value="" />
-        <option name="workOffline" value="false" />
-      </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="autoDetectCompiler" value="true" />
-        <option name="createModuleGroups" value="false" />
-        <option name="createModulesForAggregators" value="true" />
-        <option name="dedicatedModuleDir" value="" />
-        <option name="dependencyTypes" value="jar, test-jar, maven-plugin, ejb, ejb-client, jboss-har, jboss-sar, war, ear, bundle" />
-        <option name="downloadAnnotationsAutomatically" value="false" />
-        <option name="downloadDocsAutomatically" value="false" />
-        <option name="downloadSourcesAutomatically" value="false" />
-        <option name="excludeTargetFolder" value="true" />
-        <option name="generatedSourcesFolder" value="AUTODETECT" />
-        <option name="importAutomatically" value="false" />
-        <option name="importToTreeStructure" value="false" />
-        <option name="jdkForImporter" value="#USE_PROJECT_JDK" />
-        <option name="keepSourceFolders" value="true" />
-        <option name="lookForNested" value="false" />
-        <option name="updateFoldersOnImportPhase" value="process-resources" />
-        <option name="useMavenOutput" value="true" />
-        <option name="vmOptionsForImporter" value="" />
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-    <option name="enabledProfiles">
-      <list />
-    </option>
-    <option name="disabledProfiles">
-      <list />
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -227,6 +178,8 @@
       <workItem from="1701703276753" duration="58000" />
       <workItem from="1701703442484" duration="12282000" />
       <workItem from="1701774309136" duration="3364000" />
+      <workItem from="1701796044261" duration="1037000" />
+      <workItem from="1701797662718" duration="4975000" />
     </task>
     <servers />
   </component>
