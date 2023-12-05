@@ -55,7 +55,7 @@ public class NewSongController implements Initializable {
 
                 txtTitle.setText(file.getName());
              txtFile.setText(file.getAbsolutePath());
-             
+
             }
     }
 

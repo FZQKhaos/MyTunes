@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="619.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.GUI.Controller.MainController">
+<AnchorPane prefHeight="619.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.GUI.Controller.MainController">
    <children>
       <HBox alignment="CENTER" layoutY="90.0" prefHeight="438.0" prefWidth="859.0" spacing="15.0">
          <children>
@@ -118,7 +118,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Text>
-      <Label fx:id="currentSong" alignment="TOP_CENTER" layoutX="376.0" layoutY="40.0" text="current song">
+      <Label fx:id="currentSong" alignment="TOP_CENTER" layoutX="257.0" layoutY="28.0" text="Current song ">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

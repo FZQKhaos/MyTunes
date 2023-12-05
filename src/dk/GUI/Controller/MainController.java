@@ -224,6 +224,7 @@ public class MainController implements Initializable {
 
                 mediaPlayer.play();
 
+                currentSong.setText(selectedSong.getArtist() + "   -   " + selectedSong.getTitle());
             }
         }
     }
