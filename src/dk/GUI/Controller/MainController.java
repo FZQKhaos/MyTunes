@@ -17,6 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +26,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
+    private MediaPlayer mediaPlayer;
 
     @FXML
     private TableColumn<Song, String> colTitle;
@@ -200,11 +204,30 @@ public class MainController implements Initializable {
     }
 
 
-
     @FXML
-    public void onActionPlayPasue(ActionEvent event) {
+    public void onActionPlayPause(ActionEvent event) {
 
+        Song selectedSong = tblSongs.getSelectionModel().getSelectedItem();
+
+        if (selectedSong != null) {
+            String filePath = selectedSong.getFilePath().replaceAll(" ", "%20");
+
+            if (filePath != null && !filePath.isEmpty()) {
+
+
+                // Add the "file://" scheme
+                String mediaUri = "file://" + filePath;
+
+                // Create the Media object with the encoded file path
+                Media media = new Media(mediaUri);
+                mediaPlayer = new MediaPlayer(media);
+
+                mediaPlayer.play();
+
+            }
+        }
     }
+
 
     @FXML
     public void onActionRightSkip(ActionEvent event) {

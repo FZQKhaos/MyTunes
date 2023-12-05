@@ -100,7 +100,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#onActionPlayPasue" text="▶">
+            <Button mnemonicParsing="false" onAction="#onActionPlayPause" text="▶">
                <font>
                   <Font size="24.0" />
                </font>
