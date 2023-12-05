@@ -10,6 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import com.mpatric.mp3agic.ID3v2;
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.Mp3File;
+import com.mpatric.mp3agic.UnsupportedTagException;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -46,13 +51,26 @@ public class NewSongController implements Initializable {
             fileChooser.setTitle("Open Resource File");
             fileChooser.setInitialDirectory(new File("Songs"));
             fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3"),
-                    new FileChooser.ExtensionFilter("PDF Files", ".pdf"));
+                    new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3"));
 
             File file = fileChooser.showOpenDialog(stage);
 
             if (file != null){
-                txtFile.setText(file.getAbsolutePath());
+                try {
+                    Mp3File mp3file = new Mp3File(file.getAbsolutePath());
+
+                    if (mp3file.hasId3v2Tag()) {
+                        ID3v2 sang = mp3file.getId3v2Tag(); //ID3v2 er metaDataProtokol
+                        txtTitle.setText(sang.getTitle());
+                        txtArtist.setText(sang.getArtist());
+                        txtTime.setText(String.valueOf(mp3file.getLengthInSeconds()));
+                        txtFile.setText((file.getAbsolutePath()));
+                    }
+                } catch (IOException | UnsupportedTagException | InvalidDataException ex) {
+                    ex.printStackTrace();
+                }
+              // txtTitle.setText(file.getName());
+             //   txtFile.setText(file.getAbsolutePath());
             }
     }
 

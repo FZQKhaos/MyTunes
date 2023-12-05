@@ -4,6 +4,7 @@ import dk.BE.Playlist;
 import dk.BE.Song;
 import dk.GUI.Model.PlaylistModel;
 import dk.GUI.Model.SongModel;
+import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,7 +65,7 @@ public class MainController implements Initializable {
 
     private PlaylistModel playlistModel;
 
-    public MainController(){
+    public MainController() {
         try {
             songModel = new SongModel();
             playlistModel = new PlaylistModel();
@@ -108,7 +109,7 @@ public class MainController implements Initializable {
     public void onActionDeletePlaylist(ActionEvent event) {
         Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
 
-        if (selectedPlaylist != null){
+        if (selectedPlaylist != null) {
             playlistModel.deletePlatlist(selectedPlaylist);
         }
     }
@@ -138,9 +139,45 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void onActionEditSong(ActionEvent event) {
+    public void onActionEditSong(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewSongWindow.fxml"));
+        Parent root = loader.load();
+
+        NewSongController newSongController = loader.getController();
+        newSongController.setMainController(this);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+
+        stage.setTitle("New/Edit Song");
+        stage.show();
+
+       /* NewPlaylistController newPlaylistController = loader.getController();
+        newPlaylistController.setMainController(this); //en reference til MainController
+
+        stage.setTitle("New/Edit Playlist");
+        stage.show();*/
 
     }
+
+    @FXML
+    public void onActionNewSong(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewSongWindow.fxml"));
+        Parent root = loader.load();
+
+        NewSongController newSongController = loader.getController();
+        newSongController.setMainController(this); //en reference til MainController
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+
+        stage.setTitle("New/Edit Song");
+
+        stage.show();
+    }
+
+
+
 
     @FXML
     public void onActionLeftSkip(ActionEvent event) {
@@ -162,21 +199,7 @@ public class MainController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    public void onActionNewSong(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewSongWindow.fxml"));
-        Parent root = loader.load();
 
-        NewSongController newSongController = loader.getController();
-        newSongController.setMainController(this); //en reference til MainController
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-
-        stage.setTitle("New/Edit Song");
-
-        stage.show();
-    }
 
     @FXML
     public void onActionPlayPasue(ActionEvent event) {

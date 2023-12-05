@@ -13,6 +13,10 @@ import java.util.List;
 public class SongModel {
 
     private ObservableList<Song> songsToBeViewed;
+    private ObservableList<Song> songsList;
+    private ObservableList<Song> songsInPlaylistList;
+
+
 
     private SongManager songManager;
 
@@ -21,6 +25,7 @@ public class SongModel {
         songsToBeViewed = FXCollections.observableArrayList();
         songsToBeViewed.addAll(songManager.getAllSongs());
     }
+
 
     public ObservableList<Song> getObservableSongs(){
         return songsToBeViewed;
