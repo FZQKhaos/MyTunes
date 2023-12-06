@@ -8,45 +8,22 @@ import java.io.File;
 public class MediaPlayer {
 
     private javafx.scene.media.MediaPlayer mediaPlayer;
-    private String folder = "Song\\";
+    private String folder = "Songs\\";
     private boolean isPlaying = false;
     private String curretSongFilePath = "";
 
-
-    public void playMusic(String filePath) {
-        File mediaFile = new File(folder, filePath);
-
-        // Afspiller Sang
-        if (mediaFile.exists()) {
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-            }
-
-            Media media = new Media(mediaFile.toURI().toString());
-            mediaPlayer = new javafx.scene.media.MediaPlayer(media);
-            mediaPlayer.play();
-            isPlaying = true;
-            curretSongFilePath = filePath;
-        } else {
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-            }
-            isPlaying = false;
-        }
-    }
-
     /**
-     * Skift filePath i DB til kun at være navn.mp3 kan være det hjælper på det med at afspille filen
+     * Skift filePath i DB til kun at være navn.mp3
+     * Eksempel
+     * C:\Users\Brugernavn\Desktop\Mappe1\Mappe2\7 Years.mp3 - Forkert
+     * 7 Years.mp3 - rigtigt
      */
 
-
-    /*
     public void playMusic(String filePath){
         File mediaFile = new File(folder + filePath);
 
         // Afspiller Sang
         if (mediaFile.exists()){
-
             if (mediaPlayer != null && filePath.equals(curretSongFilePath) && !isPlaying){
                 mediaPlayer.play();
                 isPlaying = true;
@@ -63,7 +40,7 @@ public class MediaPlayer {
         isPlaying = true;
         curretSongFilePath = filePath;
     }
-    */
+
 
     public void pauseMusic(){
         if (mediaPlayer != null){

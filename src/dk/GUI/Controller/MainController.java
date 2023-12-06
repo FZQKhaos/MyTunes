@@ -4,7 +4,6 @@ import dk.BE.Playlist;
 import dk.BE.Song;
 import dk.GUI.Model.PlaylistModel;
 import dk.GUI.Model.SongModel;
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -15,8 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -234,10 +231,11 @@ public class MainController implements Initializable {
                 }
             }
         }
+
     private void playSong (Song song){
         currentSongIndex = songModel.getObservableSongs().indexOf(song);
         if (song != null && mediaPlayer != null){
-            System.out.println("Fejl" + song.getFilePath());
+            System.out.println("Playing: " + song.getFilePath());
             mediaPlayer.playMusic(song.getFilePath());
             currentSongDetails.set("Currently Playing: " + song.getTitle() + " - " + song.getArtist());
             btnPlayPause.setText("||");
