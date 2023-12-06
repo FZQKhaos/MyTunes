@@ -8,7 +8,7 @@ import java.io.File;
 public class MediaPlayer {
 
     private javafx.scene.media.MediaPlayer mediaPlayer;
-    private String folder = "Songs\\";
+    private String folder = "Songs" + File.separator;
     private boolean isPlaying = false;
     private String curretSongFilePath = "";
 

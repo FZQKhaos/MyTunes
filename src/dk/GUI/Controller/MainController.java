@@ -238,7 +238,7 @@ public class MainController implements Initializable {
             System.out.println("Playing: " + song.getFilePath());
             mediaPlayer.playMusic(song.getFilePath());
             currentSongDetails.set("Currently Playing: " + song.getTitle() + " - " + song.getArtist());
-            btnPlayPause.setText("||");
+            btnPlayPause.setText("⏸");
         }
     }
 
