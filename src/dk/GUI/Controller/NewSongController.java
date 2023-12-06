@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -22,6 +24,8 @@ public class NewSongController implements Initializable {
     public Button btnCancel;
     @FXML
     public TextField txtTitle, txtArtist, txtTime, txtFile;
+
+    public MenuButton btnGenre;
 
     private MainController mainController;
 
@@ -72,7 +76,7 @@ public class NewSongController implements Initializable {
         String file = txtFile.getText();
 
         //når der oprettes ny sang og tilføjes til tabellen i MainController
-        Song newSong = new Song(title,artist,time,file,"genre");
+        Song newSong = new Song(title,artist,time,file,btnGenre.getText());
         mainController.addSongToTable(newSong); //opdatering af tableView i MainController
 
         Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -84,4 +88,16 @@ public class NewSongController implements Initializable {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
+
+    public void OnActionGenre(ActionEvent event) {
+
+        MenuItem selectedGenre = (MenuItem) event.getSource();
+            String genreName = selectedGenre.getText();
+            btnGenre.setText(genreName);
+        }
+
+
+
+
 }
+
