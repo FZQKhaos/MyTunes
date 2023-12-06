@@ -1,6 +1,15 @@
 package dk.GUI.Controller;
 
 
+
+
+
+import com.mpatric.mp3agic.ID3v2;
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.Mp3File;
+import com.mpatric.mp3agic.UnsupportedTagException;
+
+
 import dk.BE.Song;
 import dk.GUI.Model.SongModel;
 import javafx.event.ActionEvent;
@@ -44,7 +53,7 @@ public class NewSongController implements Initializable {
 
     }
 
-    public void onActionChoose(ActionEvent event) {
+    public void onActionChoose(ActionEvent event) throws InvalidDataException, UnsupportedTagException, IOException {
         Stage stage = new Stage();
 
             FileChooser fileChooser = new FileChooser();
@@ -57,9 +66,18 @@ public class NewSongController implements Initializable {
 
             if (file != null){
 
-                txtTitle.setText(file.getName());
-             txtFile.setText(file.getAbsolutePath());
+                Mp3File mp3file = new Mp3File(file.getAbsolutePath());
 
+                if (mp3file.hasId3v2Tag()) {
+                    ID3v2 metaData = mp3file.getId3v2Tag();
+
+                    txtTime.setText(String.valueOf(mp3file.getLengthInSeconds()));
+                    txtArtist.setText(metaData.getArtist());
+                    txtTitle.setText(metaData.getTitle());
+
+
+                }
+                txtFile.setText((file.getName()));
             }
     }
 
