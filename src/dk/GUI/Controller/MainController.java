@@ -109,6 +109,7 @@ public class MainController implements Initializable {
             }
         });
 
+
         this.mediaPlayer = new MediaPlayer();
         mediaPlayer.volumeBar(volumeSlider);
         volumeSlider.setValue(100);
@@ -118,6 +119,8 @@ public class MainController implements Initializable {
         btnRightSkip.setOnAction(event -> playNextSong());
 
         currentSong.textProperty().bind(currentSongDetails);
+
+
     }
 
     @FXML
@@ -198,11 +201,12 @@ public class MainController implements Initializable {
 
 
 
-
     @FXML
     public void onActionLeftSkip(ActionEvent event) {
         playPreviousSong();
     }
+
+
 
     @FXML
     public void onActionNewPlaylist(ActionEvent event) throws IOException {
@@ -222,6 +226,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void onActionPlayPause(ActionEvent event) {
+
             Song selectedSong = tblSongs.getSelectionModel().getSelectedItem();
             if (selectedSong != null) {
                 if (mediaPlayer.isPlaying()) {
@@ -229,19 +234,22 @@ public class MainController implements Initializable {
                     mediaPlayer.pauseMusic();
                 } else {
                     playSong(selectedSong);
+                    btnPlayPause.setText("⏸");
                 }
             }
         }
 
+
+
     private void playSong (Song song){
         currentSongIndex = songModel.getObservableSongs().indexOf(song);
         if (song != null && mediaPlayer != null){
-            System.out.println("Playing: " + song.getFilePath());
             mediaPlayer.playMusic(song.getFilePath());
             currentSongDetails.set("Currently Playing: " + song.getTitle() + " - " + song.getArtist());
             btnPlayPause.setText("⏸");
         }
     }
+
 
     private void playPreviousSong(){
         if (!songModel.getObservableSongs().isEmpty() && currentSongIndex > 0) {
@@ -249,6 +257,8 @@ public class MainController implements Initializable {
             playSong(songModel.getObservableSongs().get(currentSongIndex));
         }
     }
+
+
 
     private void playNextSong() {
         if (!songModel.getObservableSongs().isEmpty() && currentSongIndex < songModel.getObservableSongs().size() - 1) {
@@ -261,6 +271,8 @@ public class MainController implements Initializable {
     public void onActionRightSkip(ActionEvent event) {
         playNextSong();
     }
+
+
 
     @FXML
     public void onActionUpArrow(ActionEvent event) {

@@ -7,10 +7,14 @@ import java.io.File;
 
 public class MediaPlayer {
 
+
+
     private javafx.scene.media.MediaPlayer mediaPlayer;
     private String folder = "Songs" + File.separator;
     private boolean isPlaying = false;
     private String curretSongFilePath = "";
+
+
 
     /**
      * Skift filePath i DB til kun at være navn.mp3
@@ -19,28 +23,32 @@ public class MediaPlayer {
      * 7 Years.mp3 - rigtigt
      */
 
+
     public void playMusic(String filePath){
+
         File mediaFile = new File(folder + filePath);
 
-        // Afspiller Sang
-        if (mediaFile.exists()){
-            if (mediaPlayer != null && filePath.equals(curretSongFilePath) && isPlaying){
-                mediaPlayer.play();
-                isPlaying = true;
+        if (mediaFile.exists()) {
+            if (mediaPlayer != null) {
+                if (isPlaying) {
+                    mediaPlayer.pause();
+                }
             }
+
+            Media media = new Media(mediaFile.toURI().toString());
+            if (mediaPlayer == null || !filePath.equals(curretSongFilePath)) {
+                mediaPlayer = new javafx.scene.media.MediaPlayer(media);
+            }
+
+            mediaPlayer.play();
+            isPlaying = true;
+            curretSongFilePath = filePath;
         } else {
-            if (mediaPlayer != null){
-                mediaPlayer.stop();
+            if (mediaPlayer != null) {
+                mediaPlayer.pause();
             }
         }
-
-        Media media = new Media(mediaFile.toURI().toString());
-        mediaPlayer = new javafx.scene.media.MediaPlayer(media);
-        mediaPlayer.play();
-        isPlaying = true;
-        curretSongFilePath = filePath;
     }
-
 
     public void pauseMusic(){
         if (mediaPlayer != null){
