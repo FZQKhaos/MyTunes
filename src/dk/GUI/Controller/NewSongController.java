@@ -1,12 +1,23 @@
 package dk.GUI.Controller;
 
 
+
+
+
+import com.mpatric.mp3agic.ID3v2;
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.Mp3File;
+import com.mpatric.mp3agic.UnsupportedTagException;
+
+
 import dk.BE.Song;
 import dk.GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -22,6 +33,8 @@ public class NewSongController implements Initializable {
     public Button btnCancel;
     @FXML
     public TextField txtTitle, txtArtist, txtTime, txtFile;
+
+    public MenuButton btnGenre;
 
     private MainController mainController;
 
@@ -40,7 +53,7 @@ public class NewSongController implements Initializable {
 
     }
 
-    public void onActionChoose(ActionEvent event) {
+    public void onActionChoose(ActionEvent event) throws InvalidDataException, UnsupportedTagException, IOException {
         Stage stage = new Stage();
 
             FileChooser fileChooser = new FileChooser();
@@ -53,9 +66,18 @@ public class NewSongController implements Initializable {
 
             if (file != null){
 
-                txtTitle.setText(file.getName());
-             txtFile.setText(file.getAbsolutePath());
+                Mp3File mp3file = new Mp3File(file.getAbsolutePath());
 
+                if (mp3file.hasId3v2Tag()) {
+                    ID3v2 metaData = mp3file.getId3v2Tag();
+
+                    txtTime.setText(String.valueOf(mp3file.getLengthInSeconds()));
+                    txtArtist.setText(metaData.getArtist());
+                    txtTitle.setText(metaData.getTitle());
+
+
+                }
+                txtFile.setText((file.getName()));
             }
     }
 
@@ -72,7 +94,7 @@ public class NewSongController implements Initializable {
         String file = txtFile.getText();
 
         //når der oprettes ny sang og tilføjes til tabellen i MainController
-        Song newSong = new Song(title,artist,time,file,"genre");
+        Song newSong = new Song(title,artist,time,file,btnGenre.getText());
         mainController.addSongToTable(newSong); //opdatering af tableView i MainController
 
         Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -84,4 +106,16 @@ public class NewSongController implements Initializable {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
+
+    public void OnActionGenre(ActionEvent event) {
+
+        MenuItem selectedGenre = (MenuItem) event.getSource();
+            String genreName = selectedGenre.getText();
+            btnGenre.setText(genreName);
+        }
+
+
+
+
 }
+

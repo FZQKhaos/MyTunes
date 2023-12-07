@@ -27,12 +27,20 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="274.0" spacing="10.0">
                <children>
-                  <MenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" text="MenuButton">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
+                  <MenuButton fx:id="btnGenre" text="Select Genre">
+                     <items>
+                        <MenuItem onAction="#OnActionGenre" text="Pop" />
+                        <MenuItem onAction="#OnActionGenre" text="Hip Hop" />
+                        <MenuItem fx:id="genreRock" onAction="#OnActionGenre" text="Rock" />
+                        <MenuItem fx:id="genreEdm" onAction="#OnActionGenre" text="EDM" />
+                        <MenuItem onAction="#OnActionGenre" text="Country" />
+                        <MenuItem onAction="#OnActionGenre" text="Jazz" />
+                        <MenuItem onAction="#OnActionGenre" text="Classical" />
+                        <MenuItem onAction="#OnActionGenre" text="Rap" />
+
+                     </items>
                   </MenuButton>
+
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="228.0" spacing="10.0">
