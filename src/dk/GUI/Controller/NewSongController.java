@@ -68,6 +68,7 @@ public class NewSongController implements Initializable {
 
                 Mp3File mp3file = new Mp3File(file.getAbsolutePath());
 
+
                 if (mp3file.hasId3v2Tag()) {
                     ID3v2 metaData = mp3file.getId3v2Tag();
 

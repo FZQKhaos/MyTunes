@@ -24,7 +24,7 @@ public class MediaPlayer {
 
         // Afspiller Sang
         if (mediaFile.exists()){
-            if (mediaPlayer != null && filePath.equals(curretSongFilePath) && !isPlaying){
+            if (mediaPlayer != null && filePath.equals(curretSongFilePath) && isPlaying){
                 mediaPlayer.play();
                 isPlaying = true;
             }
