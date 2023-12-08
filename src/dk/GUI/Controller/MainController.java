@@ -161,27 +161,6 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    public void onActionEditSong(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewSongWindow.fxml"));
-        Parent root = loader.load();
-
-        NewSongController newSongController = loader.getController();
-        newSongController.setMainController(this);
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-
-        stage.setTitle("New/Edit Song");
-        stage.show();
-
-       /* NewPlaylistController newPlaylistController = loader.getController();
-        newPlaylistController.setMainController(this); //en reference til MainController
-
-        stage.setTitle("New/Edit Playlist");
-        stage.show();*/
-
-    }
 
     @FXML
     public void onActionNewSong(ActionEvent event) throws IOException {
