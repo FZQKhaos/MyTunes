@@ -31,6 +31,7 @@ public class MainController implements Initializable {
     public Button btnLeftSkip, btnRightSkip;
 
 
+
     @FXML
     private TableColumn<Song, String> colTitle;
 
@@ -59,7 +60,10 @@ public class MainController implements Initializable {
     private TableView<Playlist> tblPlaylist;
 
     @FXML
-    private TableView<?> tblSonginPlaylist;
+    private TableView<Song> tblSonginPlaylist;
+
+    @FXML
+    private TableColumn colTitleSiP;
 
     @FXML
     private TableView<Song> tblSongs;
@@ -92,13 +96,27 @@ public class MainController implements Initializable {
         colGenre.setCellValueFactory(new PropertyValueFactory<>("Genre"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
         colTime.setCellValueFactory(new PropertyValueFactory<>("TimeString"));
+
         // TableView Containing all Playlists
         colPName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colPSongs.setCellValueFactory(new PropertyValueFactory<>("Songs"));
         colPTime.setCellValueFactory(new PropertyValueFactory<>("Time"));
 
+        colTitleSiP.setCellValueFactory(new PropertyValueFactory<>("Title"));
+
+
         tblSongs.setItems(songModel.getObservableSongs());
         tblPlaylist.setItems(playlistModel.getObservablePlaylists());
+
+        tblPlaylist.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
+            if (newValue != null){
+                try {
+                    tblSonginPlaylist.setItems(playlistModel.getObservableSongsInPlaylist(newValue));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
         // Searchbar
         txtSongSearch.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -109,25 +127,46 @@ public class MainController implements Initializable {
             }
         });
 
-
+        // MediaPlayer
         this.mediaPlayer = new MediaPlayer();
         mediaPlayer.volumeBar(volumeSlider);
         volumeSlider.setValue(100);
 
-        //apfspiller tideligere og næste sang i tableView
+        // Skip knapperne
         btnLeftSkip.setOnAction(event -> playPreviousSong());
         btnRightSkip.setOnAction(event -> playNextSong());
 
         currentSong.textProperty().bind(currentSongDetails);
 
-
     }
 
     @FXML
     public void onActionAddSongToPlaylist(ActionEvent event) {
+        Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
+        Song selectedSong = tblSongs.getSelectionModel().getSelectedItem();
 
+        if (selectedPlaylist == null || selectedSong == null){
+            alertBox("Could not add song to Playlist", "You did not select a song or playlist");
+        }
+
+
+        if (selectedPlaylist != null && selectedSong != null){
+            try {
+                playlistModel.addSongsToPlaylist(selectedSong, selectedPlaylist);
+                playlistModel.loadSongsForPlaylist(selectedPlaylist.getId());
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
+    private void alertBox(String title, String content){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
     @FXML
     public void onActionDeletePlaylist(ActionEvent event) {
         Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();

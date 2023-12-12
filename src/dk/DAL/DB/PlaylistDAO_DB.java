@@ -2,6 +2,7 @@ package dk.DAL.DB;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dk.BE.Playlist;
+import dk.BE.Song;
 import dk.DAL.IPlaylistDataAccess;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
     public PlaylistDAO_DB() throws IOException {
         databaseConnector = new DatabaseConnector();
+
     }
 
     @Override
@@ -22,12 +24,12 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         ArrayList<Playlist> allPlaylists = new ArrayList<>();
 
         try (Connection conn = databaseConnector.getConnection();
-        Statement stmt = conn.createStatement()){
+             Statement stmt = conn.createStatement()) {
 
             String sql = "SELECT * FROM dbo.Playlist;";
             ResultSet rs = stmt.executeQuery(sql);
 
-            while (rs.next()){
+            while (rs.next()) {
                 String name = rs.getString("Name");
                 int songs = rs.getInt("Songs");
                 int time = rs.getInt("Time");
@@ -49,7 +51,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
     public Playlist createPlaylist(Playlist playlist) {
         String sql = "INSERT INTO dbo.Playlist (Name, Songs, Time) VALUES (?, ?, ?);";
 
-        try (Connection conn = databaseConnector.getConnection()){
+        try (Connection conn = databaseConnector.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //Bind parameters
@@ -64,7 +66,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             ResultSet rs = stmt.getGeneratedKeys();
             int id = 0;
 
-            if (rs.next()){
+            if (rs.next()) {
                 id = rs.getInt(1);
             }
 
@@ -87,7 +89,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         String sql = "DELETE FROM dbo.Playlist WHERE Id = (?);";
 
         try (Connection conn = databaseConnector.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             // Bind parameters
             stmt.setInt(1, playlist.getId());
@@ -95,6 +97,62 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             // Run the specified SQL statement
             stmt.executeUpdate();
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void addSongsToPlaylist(Song song, Playlist playlist) {
+
+        String sql = "INSERT INTO dbo.PlaylistSongs (SongsId, PlaylistId) VALUES (?, ?);";
+
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            stmt.setInt(1, song.getId());
+            stmt.setInt(2, playlist.getId());
+
+            int affectedRows = stmt.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SecurityException("Kan sku ik du");
+            }
+        } catch (SQLServerException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Song> getAllSongsInPlaylist(int playlistId) {
+        List<Song> allSongsinPlaylist = new ArrayList<>();
+
+        String sql = "SELECT s.*, PlaylistId\n" +
+                "FROM dbo.PlaylistSongs\n" +
+                "JOIN dbo.Songs S on S.Id = PlaylistSongs.SongsId\n" +
+                "WHERE PlaylistId = (?);";
+
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, playlistId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String title = rs.getString("Title");
+                int id = rs.getInt("Id");
+                String artist = rs.getString("Artist");
+                int time = rs.getInt("Time");
+                String genre = rs.getString("Genre");
+                String filePath = rs.getString("filePath");
+
+                Song song = new Song(title, id, artist, time, genre, filePath);
+                allSongsinPlaylist.add(song);
+            }
+            return allSongsinPlaylist;
+        } catch (SQLServerException e) {
+            throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

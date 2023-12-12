@@ -1,6 +1,7 @@
 package dk.DAL;
 
 import dk.BE.Playlist;
+import dk.BE.Song;
 
 import java.util.List;
 
@@ -13,5 +14,4 @@ public interface IPlaylistDataAccess {
     public void updatePlaylist(Playlist playlist);
 
     public void deletePlaylist(Playlist playlist);
-
 }

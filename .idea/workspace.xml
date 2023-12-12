@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BLL/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/PlaylistManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/IPlaylistDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/IPlaylistDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +83,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -87,7 +93,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Jowana/Downloads/jar_files/mp3agic-0.9.1.jar",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/valha/AppData/Local/SceneBuilder/SceneBuilder.exe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,7 +103,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -150,6 +157,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-liberica-21.0.1-3183f394aec4-a11a7b3b" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -179,6 +193,8 @@
       <workItem from="1701796044261" duration="1037000" />
       <workItem from="1701797662718" duration="5355000" />
       <workItem from="1701850364272" duration="4219000" />
+      <workItem from="1702242463751" duration="4835000" />
+      <workItem from="1702282528595" duration="19909000" />
     </task>
     <servers />
   </component>
