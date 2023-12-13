@@ -42,4 +42,8 @@ public class PlaylistManager {
     public void editPlaylist(Playlist playlist, String newName) {
         playListDAO.updatePlaylist(playlist, newName);
     }
+
+    public void deletePlaylistSong(Playlist selectedPlaylist, Song selectedSonginPlaylist) {
+        playListDAO_DB.deleteSongFromPlaylist(selectedPlaylist, selectedSonginPlaylist);
+    }
 }

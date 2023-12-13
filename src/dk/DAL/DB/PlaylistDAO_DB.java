@@ -172,4 +172,23 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteSongFromPlaylist(Playlist playlist, Song song) {
+        String sql = "DELETE FROM dbo.PlaylistSongs WHERE SongsId = (?) and PlaylistId = (?);";
+
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            // Bind parameters
+            stmt.setInt(1, song.getId());
+            stmt.setInt(2, playlist.getId());
+
+
+            // Run the specified SQL statement
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -66,4 +66,12 @@ public class PlaylistModel {
     public void updatePlaylist(Playlist playlist, String newName) {
         playlistManager.editPlaylist(playlist, newName);
     }
+
+    public void deletePlaylistSong(Playlist selectedPlaylist, Song selectedSonginPlaylist) {
+        if (songsInPlaylistToBeViewed == null){
+            return;
+        }
+        playlistManager.deletePlaylistSong(selectedPlaylist, selectedSonginPlaylist);
+        songsInPlaylistToBeViewed.remove(selectedSonginPlaylist);
+    }
 }

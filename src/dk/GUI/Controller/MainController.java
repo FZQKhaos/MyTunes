@@ -155,7 +155,6 @@ public class MainController implements Initializable {
             alertBox("Could not add song to Playlist", "You did not select a song or playlist");
         }
 
-
         if (selectedPlaylist != null && selectedSong != null){
             try {
                 playlistModel.addSongsToPlaylist(selectedSong, selectedPlaylist);
@@ -184,7 +183,12 @@ public class MainController implements Initializable {
 
     @FXML
     public void onActionDeletePlaylistSong(ActionEvent event) {
+        Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
+        Song selectedSonginPlaylist = tblSonginPlaylist.getSelectionModel().getSelectedItem();
 
+        if (selectedSonginPlaylist != null && selectedPlaylist != null) {
+            playlistModel.deletePlaylistSong(selectedPlaylist, selectedSonginPlaylist);
+        }
     }
 
     @FXML
