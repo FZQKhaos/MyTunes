@@ -23,6 +23,9 @@ public class NewPlaylistController implements Initializable{
     private PlaylistModel playlistModel;
 
     private MainController mainController;
+    private Playlist txtPlaylistToEdit;
+
+    private boolean shouldEdit = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,21 +36,35 @@ public class NewPlaylistController implements Initializable{
         }
 
     }
+    public void setShouldEdit(boolean shouldEdit, Playlist playlist) {
+        this.shouldEdit = shouldEdit;
+        txtPlaylistToEdit = playlist;
+    }
+
     public void onActionSavePlaylist(ActionEvent event) {
+        String name = txtPlaylistName.getText();
+
         //get data from ui
         if (txtPlaylistName.getText().isEmpty()){
             return;
         }
-        String name = txtPlaylistName.getText();
+
+        Stage stage = (Stage) btnSave.getScene().getWindow();
+
+        if (shouldEdit){
+            playlistModel.updatePlaylist(txtPlaylistToEdit, name);
+            mainController.updatePlaylistTable();
+            stage.close();
+            return;
+        }
+
         int time = 0;
         int songs = 0;
         playlistModel.createPlaylist(name, time, songs);
 
-        Stage stage = (Stage) btnSave.getScene().getWindow();
-        stage.close();
-
         Playlist playlist = new Playlist(name, time, songs);
         mainController.addPlaylistToTable(playlist);
+        stage.close();
     }
 
     public void onActionCancel(ActionEvent actionEvent) {

@@ -63,4 +63,7 @@ public class PlaylistModel {
         playlistManager.addSongsToPlaylist(song, playlist);
     }
 
+    public void updatePlaylist(Playlist playlist, String newName) {
+        playlistManager.editPlaylist(playlist, newName);
+    }
 }

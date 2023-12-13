@@ -80,8 +80,23 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
     }
 
     @Override
-    public void updatePlaylist(Playlist playlist) {
+    public void updatePlaylist(Playlist playlist, String newName) {
 
+        String sql = "UPDATE dbo.Playlist SET name = (?) WHERE [id] = (?);";
+
+        try (Connection conn = databaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+
+            stmt.setString(1, newName);
+            stmt.setInt(2, playlist.getId());
+
+            stmt.executeUpdate();
+
+            playlist.setName(newName);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

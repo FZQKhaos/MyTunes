@@ -11,7 +11,7 @@ public interface IPlaylistDataAccess {
 
     public Playlist createPlaylist(Playlist playlist);
 
-    public void updatePlaylist(Playlist playlist);
+    public void updatePlaylist(Playlist playlist, String newName);
 
     public void deletePlaylist(Playlist playlist);
 }

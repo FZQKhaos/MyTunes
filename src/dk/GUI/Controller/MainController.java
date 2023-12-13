@@ -24,11 +24,9 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
-    public Button btnPlayPause;
-    @FXML
     public Slider volumeSlider;
     @FXML
-    public Button btnLeftSkip, btnRightSkip;
+    public Button btnPlayPause, btnLeftSkip, btnRightSkip, btnEditPlaylist;
 
 
 
@@ -72,8 +70,12 @@ public class MainController implements Initializable {
     private TextField txtSongSearch;
 
     private SongModel songModel;
+
     private PlaylistModel playlistModel;
+
     private MediaPlayer mediaPlayer;
+
+    private NewPlaylistController playlistController;
 
     private StringProperty currentSongDetails = new SimpleStringProperty();
 
@@ -140,6 +142,10 @@ public class MainController implements Initializable {
 
     }
 
+    public void setPlaylistController (NewPlaylistController controller){
+        playlistController = controller;
+    }
+
     @FXML
     public void onActionAddSongToPlaylist(ActionEvent event) {
         Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
@@ -196,8 +202,37 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void onActionEditPlaylist(ActionEvent event) {
+    public void onActionEditPlaylist(ActionEvent event) throws IOException {
+        Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
 
+        btnEditPlaylist.setDisable(true);
+
+        if (selectedPlaylist != null){
+            btnEditPlaylist.setDisable(false);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewPlaylistWindow.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+
+            stage.setTitle("New/Edit Playlist");
+
+            NewPlaylistController newPlaylistController = loader.getController();
+            newPlaylistController.setMainController(this);
+            newPlaylistController.setShouldEdit(true, selectedPlaylist);
+
+            setPlaylistController(newPlaylistController);
+
+            stage.show();
+
+            String getSelectedPlaylistName = tblPlaylist.getSelectionModel().getSelectedItem().getName();
+            playlistController.txtPlaylistName.setText(getSelectedPlaylistName);
+        } else {
+            btnEditPlaylist.setDisable(false);
+        }
+    }
+
+    public void updatePlaylistTable(){
+        tblPlaylist.refresh();
     }
 
 

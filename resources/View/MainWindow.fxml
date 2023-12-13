@@ -74,7 +74,7 @@
       <HBox alignment="CENTER" layoutX="11.0" layoutY="528.0" prefHeight="42.0" prefWidth="246.0" spacing="15.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onActionNewPlaylist" text="New Playlist" />
-            <Button mnemonicParsing="false" onAction="#onActionEditPlaylist" text="Edit Playlist" />
+            <Button fx:id="btnEditPlaylist" mnemonicParsing="false" onAction="#onActionEditPlaylist" text="Edit Playlist" />
             <Button mnemonicParsing="false" onAction="#onActionDeletePlaylist" text="Delete" />
          </children>
       </HBox>

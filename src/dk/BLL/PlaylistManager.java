@@ -38,4 +38,8 @@ public class PlaylistManager {
     public List<Song> getSongsForPlaylist(int playlistId) {
         return playListDAO_DB.getAllSongsInPlaylist(playlistId);
     }
+
+    public void editPlaylist(Playlist playlist, String newName) {
+        playListDAO.updatePlaylist(playlist, newName);
+    }
 }
