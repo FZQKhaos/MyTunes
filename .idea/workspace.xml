@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_github_palexdev_materialfx.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/CSS/MainWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Images/BudgetSpotify.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/BLL/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/PlaylistManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyJavaFX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyJavaFX.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/MainWindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +65,7 @@
         <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -81,7 +83,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -91,7 +93,8 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/valha/Downloads/MyTunes - Kopi/MyTunes - Kopi&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nikolaj/Desktop/GithubInit/MyTunes/resources/Images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -106,6 +109,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/Images" />
       <recent name="C:\Users\valha\Desktop\Datamatiker\Projects\MyTunes\Songs" />
       <recent name="C:\Users\valha\Desktop\Datamatiker\Projects\MyTunes\config" />
       <recent name="C:\Users\Bruger\Desktop\Datamatiker\MyTunes\config" />
@@ -195,6 +199,9 @@
       <workItem from="1702456259480" duration="231000" />
       <workItem from="1702459751268" duration="3732000" />
       <workItem from="1702464389026" duration="1854000" />
+      <workItem from="1702466860169" duration="768000" />
+      <workItem from="1702497263299" duration="428000" />
+      <workItem from="1702540624646" duration="344000" />
     </task>
     <servers />
   </component>

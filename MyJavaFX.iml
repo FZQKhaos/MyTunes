@@ -19,5 +19,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mp3agic-0.9.1" level="project" />
+    <orderEntry type="library" name="io.github.palexdev.materialfx" level="project" />
   </component>
 </module>

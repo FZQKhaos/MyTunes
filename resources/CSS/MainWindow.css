@@ -1,0 +1,25 @@
+.root
+{
+    -fx-background-color: #343434;
+
+}
+
+
+#txtPlaylist, #txtSongInPlaylist, #txtSongs, #currentSong
+{
+    -fx-fill: white;
+    -fx-text-fill: white;
+}
+
+
+#upperPane, #lowerPane
+{
+    -fx-background-color: #3e3e3e;
+}
+
+
+#btnLeftSkip, #btnPlayPause, #btnRightSkip
+{
+    -fx-background-radius: 100px;
+
+}
