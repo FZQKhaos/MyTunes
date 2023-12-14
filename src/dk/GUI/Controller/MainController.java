@@ -107,6 +107,7 @@ public class MainController implements Initializable {
 
         tblSongs.setItems(songModel.getObservableSongs());
         tblPlaylist.setItems(playlistModel.getObservablePlaylists());
+        tblSonginPlaylist.setItems(tblSonginPlaylist.getItems());
 
         tblPlaylist.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
             if (newValue != null){
@@ -283,6 +284,7 @@ public class MainController implements Initializable {
     public void onActionPlayPause(ActionEvent event) {
 
             Song selectedSong = tblSongs.getSelectionModel().getSelectedItem();
+            Song selectedSongfromPlaylist = tblSonginPlaylist.getSelectionModel().getSelectedItem();
             if (selectedSong != null) {
                 if (mediaPlayer.isPlaying()) {
                     btnPlayPause.setText("▶");
@@ -292,7 +294,17 @@ public class MainController implements Initializable {
                     btnPlayPause.setText("⏸");
                 }
             }
+        if (selectedSongfromPlaylist != null) {
+            if (mediaPlayer.isPlaying()) {
+                btnPlayPause.setText("▶");
+                mediaPlayer.pauseMusic();
+            } else{
+                playSong(selectedSongfromPlaylist);
+                btnPlayPause.setText("⏸");
+            }
         }
+
+    }
 
 
 
