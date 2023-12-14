@@ -101,8 +101,6 @@ public class MainController implements Initializable {
 
         // TableView Containing all Playlists
         colPName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        colPSongs.setCellValueFactory(new PropertyValueFactory<>("Songs"));
-        colPTime.setCellValueFactory(new PropertyValueFactory<>("Time"));
 
         colTitleSiP.setCellValueFactory(new PropertyValueFactory<>("Title"));
 

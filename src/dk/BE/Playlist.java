@@ -5,24 +5,20 @@ import java.util.List;
 public class Playlist {
 
     private String name;
-    private int time;
-    private int songs;
+   
     private int id;
 
     private List<Playlist> playlists;
 
-    public Playlist(String name, int time, int songs, int id) {
+    public Playlist(String name, int id) {
         this.name = name;
-        this.time = time;
-        this.songs = songs;
         this.id = id;
     }
 
-    public Playlist(String name, int time, int songs){
+    public Playlist(String name) {
         this.name = name;
-        this.time = time;
-        this.songs = songs;
     }
+
 
     public String getName() {
         return name;
@@ -32,21 +28,7 @@ public class Playlist {
         this.name = name;
     }
 
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public int getSongs() {
-        return songs;
-    }
-
-    public void setSongs(int songs) {
-        this.songs = songs;
-    }
+   
 
     public int getId() {
         return id;
@@ -54,6 +36,6 @@ public class Playlist {
 
     @Override
     public String toString() {
-        return "name= " + name + '\'' + "time=" + time + "songs=" + songs;
+        return "name= " + name;
     }
 }

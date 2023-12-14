@@ -48,8 +48,8 @@ public class PlaylistModel {
     }
 
 
-    public void createPlaylist(String name, int time, int songs){
-        Playlist playlist = new Playlist(name, time, songs);
+    public void createPlaylist(String name){
+        Playlist playlist = new Playlist(name);
         playlistManager.createPlaylist(playlist);
         playlistsToBeViewed.add(playlist);
     }

@@ -31,11 +31,9 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
             while (rs.next()) {
                 String name = rs.getString("Name");
-                int songs = rs.getInt("Songs");
-                int time = rs.getInt("Time");
                 int id = rs.getInt("Id");
 
-                Playlist playlist = new Playlist(name, time, songs, id);
+                Playlist playlist = new Playlist(name, id);
                 allPlaylists.add(playlist);
             }
             return allPlaylists;
@@ -49,15 +47,13 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
     @Override
     public Playlist createPlaylist(Playlist playlist) {
-        String sql = "INSERT INTO dbo.Playlist (Name, Songs, Time) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO dbo.Playlist (Name) VALUES (?);";
 
         try (Connection conn = databaseConnector.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //Bind parameters
             stmt.setString(1, playlist.getName());
-            stmt.setInt(2, playlist.getSongs());
-            stmt.setInt(3, playlist.getTime());
 
             // Run the specified SQL statement
             stmt.executeUpdate();
@@ -70,7 +66,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
                 id = rs.getInt(1);
             }
 
-            Playlist createdPlaylist = new Playlist(playlist.getName(), playlist.getSongs(), playlist.getTime());
+            Playlist createdPlaylist = new Playlist(playlist.getName());
 
             return createdPlaylist;
 

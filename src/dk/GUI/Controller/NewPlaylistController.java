@@ -58,11 +58,9 @@ public class NewPlaylistController implements Initializable{
             return;
         }
 
-        int time = 0;
-        int songs = 0;
-        playlistModel.createPlaylist(name, time, songs);
+        playlistModel.createPlaylist(name);
 
-        Playlist playlist = new Playlist(name, time, songs);
+        Playlist playlist = new Playlist(name);
         mainController.addPlaylistToTable(playlist);
         stage.close();
     }
