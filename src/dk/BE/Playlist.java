@@ -28,7 +28,6 @@ public class Playlist {
         this.name = name;
     }
 
-   
 
     public int getId() {
         return id;

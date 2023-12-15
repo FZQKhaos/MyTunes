@@ -1,7 +1,12 @@
 package dk.GUI.Controller;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.media.Media;
+import javafx.util.Duration;
 
 import java.io.File;
 
@@ -14,7 +19,17 @@ public class MediaPlayer {
     private boolean isPlaying = false;
     private String curretSongFilePath = "";
 
+    private Label lblSongTimer;
+    private ProgressBar pbSongTimer;
 
+
+    public MediaPlayer() {
+    }
+
+    public MediaPlayer(Label lblSongTimer, ProgressBar pbSongTimer) {
+        this.lblSongTimer = lblSongTimer;
+        this.pbSongTimer = pbSongTimer;
+    }
 
     /**
      * Skift filePath i DB til kun at være navn.mp3
@@ -59,6 +74,31 @@ public class MediaPlayer {
 
     public boolean isPlaying(){
         return isPlaying;
+    }
+
+    public void duration(Label lblSongTimer){
+        ReadOnlyObjectProperty<Duration> currentTime = mediaPlayer.currentTimeProperty();
+
+        currentTime.addListener((observable, oldValue, newValue) -> {
+            Duration pbCurrentDuration = mediaPlayer.getCurrentTime();
+            Duration pbTotalDuration = mediaPlayer.getTotalDuration();
+            if (pbTotalDuration != null && pbTotalDuration.toSeconds() > 0){
+                double pbProgress = pbCurrentDuration.toSeconds() / pbTotalDuration.toSeconds();
+                pbSongTimer.setProgress(pbProgress);
+            }
+        });
+
+        lblSongTimer.textProperty().bind(Bindings.createStringBinding(() ->
+                getTimeString(mediaPlayer.getCurrentTime()), currentTime));
+    }
+
+    private String getTimeString(Duration duration) {
+
+        int minutes = (int) duration.toMinutes();
+        int seconds = (int) duration.toSeconds() % 60;
+
+        String formatedTime = String.format("%d:%02d", minutes, seconds);
+        return formatedTime;
     }
 
     public void volumeBar(Slider volumeSlider){

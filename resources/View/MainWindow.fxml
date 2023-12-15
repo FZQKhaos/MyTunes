@@ -64,7 +64,7 @@
                   <Font name="BM DoHyeon OTF" size="12.0" />
                </font>
             </Label>
-            <MFXProgressBar fx:id="pbSongTimer" layoutX="28.0" layoutY="62.0" prefHeight="11.0" prefWidth="296.0" progress="0.19">
+            <MFXProgressBar fx:id="pbSongTimer" layoutX="28.0" layoutY="62.0" prefHeight="11.0" prefWidth="296.0" progress="0.0">
                <effect>
                   <ColorAdjust brightness="0.26" contrast="-0.12" hue="-0.17" />
                </effect>
@@ -102,7 +102,7 @@
          <children>
             <MFXButton fx:id="btnNewPlaylist" buttonType="RAISED" depthLevel="LEVEL3" onAction="#onActionNewPlaylist" prefHeight="30.0" prefWidth="70.0" rippleColor="#5fd30c" text="New playlist">
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font size="10.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -110,7 +110,7 @@
             </MFXButton>
             <MFXButton fx:id="btnEditPlaylist" buttonType="RAISED" onAction="#onActionEditPlaylist" prefHeight="30.0" prefWidth="70.0" rippleColor="#5fd30c" text="Edit playlist">
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font size="10.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -118,7 +118,7 @@
             </MFXButton>
             <MFXButton fx:id="btnDeletePlaylist" buttonType="RAISED" onAction="#onActionDeletePlaylist" prefHeight="30.0" prefWidth="70.0" rippleColor="#5fd30c" text="Delete">
                <font>
-                  <Font name="System Bold" size="10.0" />
+                  <Font size="10.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

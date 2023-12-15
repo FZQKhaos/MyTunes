@@ -52,7 +52,10 @@ public class MainController implements Initializable {
     private TableColumn<Playlist, Integer> colPTime;
 
     @FXML
-    private Label currentSong;
+    private ProgressBar pbSongTimer;
+
+    @FXML
+    private Label currentSong, lblSongTimer;
 
     @FXML
     private TableView<Playlist> tblPlaylist;
@@ -130,6 +133,7 @@ public class MainController implements Initializable {
 
         // MediaPlayer
         this.mediaPlayer = new MediaPlayer();
+        this.mediaPlayer = new MediaPlayer(lblSongTimer, pbSongTimer);
         mediaPlayer.volumeBar(volumeSlider);
         volumeSlider.setValue(100);
 
@@ -312,6 +316,7 @@ public class MainController implements Initializable {
         currentSongIndex = songModel.getObservableSongs().indexOf(song);
         if (song != null && mediaPlayer != null){
             mediaPlayer.playMusic(song.getFilePath());
+            mediaPlayer.duration(lblSongTimer);
             currentSongDetails.set("Currently Playing: " + song.getTitle() + " - " + song.getArtist());
             btnPlayPause.setText("⏸");
         }
