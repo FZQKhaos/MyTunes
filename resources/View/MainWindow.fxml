@@ -17,213 +17,269 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="880.0" prefWidth="1100.0" stylesheets="@../CSS/MainWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.GUI.Controller.MainController">
+<AnchorPane fx:id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" stylesheets="@../CSS/MainWindow.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.GUI.Controller.MainController">
    <children>
-      <VBox alignment="CENTER" layoutX="24.0" layoutY="100.0" prefHeight="670.0" prefWidth="250.0">
+      <HBox layoutY="697.0" prefHeight="105.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <Pane fx:id="lowerPane" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Library" textFill="WHITE">
-                     <font>
-                        <Font name="BM DoHyeon OTF" size="28.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <MFXLegacyTableView fx:id="tblPlaylist" prefHeight="510.0" prefWidth="250.0" VBox.vgrow="ALWAYS">
-               <columns>
-                  <TableColumn fx:id="colPName" prefWidth="249.0000123977661" text="Name" />
-               </columns>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </MFXLegacyTableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <MFXButton fx:id="btnNewPlaylist" buttonType="RAISED" depthLevel="LEVEL3" onAction="#onActionNewPlaylist" prefHeight="27.0" prefWidth="62.0" rippleColor="#5fd30c" text="New playlist">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <HBox.margin>
+                  <HBox alignment="CENTER" layoutX="373.0" layoutY="-13.0" prefHeight="133.0" prefWidth="330.0">
+                     <children>
+                        <MFXButton fx:id="btnLeftSkip" alignment="CENTER" buttonType="RAISED" onAction="#onActionLeftSkip" prefHeight="50.0" prefWidth="50.0" rippleAnimateBackground="false" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="#5fd30c" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="⏪" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </MFXButton>
+                        <MFXButton fx:id="btnPlayPause" alignment="CENTER" buttonType="RAISED" onAction="#onActionPlayPause" prefHeight="70.0" prefWidth="70.0" rippleAnimateBackground="false" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="#5fd30c" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="▶" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnRightSkip" alignment="CENTER" buttonType="RAISED" onAction="#onActionRightSkip" prefHeight="50.0" prefWidth="50.0" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="#5fd30c" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="⏩" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </MFXButton>
+                     </children>
+                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-                  <MFXButton fx:id="btnEditPlaylist" buttonType="RAISED" onAction="#onActionEditPlaylist" prefHeight="27.0" prefWidth="62.0" rippleColor="#5fd30c" text="Edit playlist">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-                  <MFXButton fx:id="btnDeletePlaylist" buttonType="RAISED" onAction="#onActionDeletePlaylist" prefHeight="27.0" prefWidth="62.0" rippleColor="#5fd30c" text="Delete">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" layoutX="312.0" layoutY="102.0" prefHeight="670.0" prefWidth="300.0">
-         <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label text="Playlist" textFill="WHITE">
-                     <font>
-                        <Font name="BM DoHyeon OTF" size="28.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <MFXLegacyTableView fx:id="tblSonginPlaylist" prefHeight="510.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
-               <columns>
-                  <TableColumn fx:id="colTitleSiP" prefWidth="300.0" text="Title" />
-               </columns>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </MFXLegacyTableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <MFXButton fx:id="btnArrowDown" buttonType="RAISED" onAction="#onActionDownArrow" prefHeight="27.0" prefWidth="45.0" rippleColor="#5fd30c" text="⬇">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-                  <MFXButton fx:id="btnArrowUp" buttonType="RAISED" onAction="#onActionUpArrow" prefHeight="27.0" prefWidth="45.0" rippleColor="#5fd30c" text="⬆">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-                  <MFXButton fx:id="btnDeleteSongInPlaylist" buttonType="RAISED" onAction="#onActionDeletePlaylistSong" prefHeight="27.0" prefWidth="62.0" rippleColor="#5fd30c" text="Remove ">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" layoutX="675.0" layoutY="103.0" prefHeight="670.0" prefWidth="400.0">
-         <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label text="Browse" textFill="WHITE">
-                     <font>
-                        <Font name="BM DoHyeon OTF" size="28.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <MFXLegacyTableView fx:id="tblSongs" prefHeight="510.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
-               <columns>
-                  <TableColumn fx:id="colTitle" prefWidth="100.0" text="Title" />
-                  <TableColumn fx:id="colArtists" prefWidth="100.0" text="Artists" />
-                  <TableColumn fx:id="colGenre" prefWidth="100.0" text="Genre" />
-                  <TableColumn fx:id="colTime" prefWidth="100.0" text="Time" />
-               </columns>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </MFXLegacyTableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <MFXButton fx:id="btnNewSong" buttonType="RAISED" onAction="#onActionNewSong" prefHeight="27.0" prefWidth="62.0" rippleColor="#5fd30c" text="Add Song">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-                  <MFXButton fx:id="btnDeleteSong" buttonType="RAISED" onAction="#onActionDeleteSong" prefHeight="27.0" prefWidth="62.0" rippleColor="#5fd30c" text="Delete">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </MFXButton>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <HBox layoutY="-3.0" prefHeight="100.0" prefWidth="1100.0">
-         <children>
-            <Pane fx:id="upperPane" prefHeight="100.0" prefWidth="1100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label layoutX="117.0" layoutY="17.0" text="Budget Spotify" textFill="WHITE">
-                     <font>
-                        <Font name="BM DoHyeon OTF" size="36.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="105.0" fitWidth="110.0" layoutX="8.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/BudgetSpotify.png" />
-                     </image>
-                  </ImageView>
-                  <MFXTextField fx:id="txtSongSearch" floatMode="BORDER" graphicTextGap="5.0" layoutX="730.0" layoutY="32.0" prefHeight="39.0" prefWidth="345.0" promptText="  🔍 Search for song" />
-               </children>
-            </Pane>
-         </children>
-      </HBox>
-      <HBox layoutX="-1.0" layoutY="779.0" prefHeight="100.0" prefWidth="1100.0">
-         <children>
-            <Pane fx:id="lowerPane" prefHeight="100.0" prefWidth="1100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label fx:id="currentSong" alignment="TOP_CENTER" layoutX="17.0" layoutY="30.0" text="Current song ">
-                     <font>
-                        <Font name="BM DoHyeon OTF" size="14.0" />
-                     </font>
-                  </Label>
-                  <MFXProgressBar layoutX="17.0" layoutY="70.0" prefHeight="12.0" prefWidth="404.0" progress="0.19">
-                     <effect>
-                        <ColorAdjust brightness="0.26" contrast="-0.12" hue="-0.17" />
-                     </effect>
-                  </MFXProgressBar>
-                  <Slider fx:id="volumeSlider" layoutX="873.0" layoutY="44.0" prefHeight="23.0" prefWidth="179.0">
+                     </padding>
+                  </HBox>
+                  <Slider fx:id="volumeSlider" layoutX="736.0" layoutY="44.0" prefHeight="20.0" prefWidth="219.0">
                      <effect>
                         <ColorAdjust contrast="0.62" />
                      </effect>
                   </Slider>
-                  <MFXButton fx:id="btnLeftSkip" alignment="CENTER" buttonType="RAISED" layoutX="567.0" layoutY="31.0" onAction="#onActionLeftSkip" prefHeight="50.0" prefWidth="50.0" rippleAnimateBackground="false" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="#5fd30c" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="⏪">
-                     <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </padding>
+                  <Label fx:id="currentSong" alignment="TOP_CENTER" layoutX="28.0" layoutY="24.0" text="Current song ">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="BM DoHyeon OTF" size="14.0" />
                      </font>
-                  </MFXButton>
-                  <MFXButton fx:id="btnPlayPause" alignment="CENTER" buttonType="RAISED" layoutX="636.0" layoutY="22.0" onAction="#onActionPlayPause" prefHeight="70.0" prefWidth="70.0" rippleAnimateBackground="false" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="#5fd30c" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="▶">
-                     <padding>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                     </padding>
+                  </Label>
+                  <MFXProgressBar fx:id="pbSongTimer" layoutX="28.0" layoutY="68.0" prefHeight="11.0" prefWidth="296.0" progress="0.19">
+                     <effect>
+                        <ColorAdjust brightness="0.26" contrast="-0.12" hue="-0.17" />
+                     </effect>
+                  </MFXProgressBar>
+                  <Label fx:id="lblSongTimer" layoutX="341.0" layoutY="61.0" text="0:00" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="BM DoHyeon OTF" size="13.0" />
                      </font>
-                  </MFXButton>
-                  <MFXButton fx:id="btnRightSkip" alignment="CENTER" buttonType="RAISED" layoutX="725.0" layoutY="32.0" onAction="#onActionRightSkip" prefHeight="50.0" prefWidth="50.0" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="#5fd30c" rippleRadius="0.0" rippleRadiusMultiplier="0.0" text="⏩">
-                     <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </padding>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="9.0" layoutY="110.0" prefHeight="520.0" prefWidth="1021.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="-1.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="516.0" prefWidth="271.0">
+               <children>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Library" textFill="WHITE">
+                           <font>
+                              <Font name="BM DoHyeon OTF" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <MFXLegacyTableView fx:id="tblPlaylist" minHeight="412.0" minWidth="170.0" prefHeight="412.0" prefWidth="271.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colPName" prefWidth="270.0" text="Name" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </MFXLegacyTableView>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <MFXButton fx:id="btnNewPlaylist" buttonType="RAISED" depthLevel="LEVEL3" onAction="#onActionNewPlaylist" prefWidth="60.0" rippleColor="#5fd30c" text="New playlist">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnEditPlaylist" buttonType="RAISED" onAction="#onActionEditPlaylist" prefWidth="60.0" rippleColor="#5fd30c" text="Edit playlist">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnDeletePlaylist" buttonType="RAISED" onAction="#onActionDeletePlaylist" prefWidth="60.0" rippleColor="#5fd30c" text="Delete">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="505.0" prefWidth="170.0">
+               <children>
+                  <HBox alignment="CENTER" />
+                  <Label text="Playlist" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="BM DoHyeon OTF" size="28.0" />
                      </font>
-                  </MFXButton>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <MFXLegacyTableView fx:id="tblSonginPlaylist" prefHeight="433.0" prefWidth="170.0">
+                     <columns>
+                        <TableColumn fx:id="colTitleSiP" prefWidth="169.0" text="Title" />
+                     </columns>
+                  </MFXLegacyTableView>
+                  <HBox alignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <MFXButton fx:id="btnArrowDown" buttonType="RAISED" onAction="#onActionDownArrow" prefWidth="40.0" rippleColor="#5fd30c" text="⬇">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnArrowUp" buttonType="RAISED" onAction="#onActionUpArrow" prefWidth="40.0" rippleColor="#5fd30c" text="⬆">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnDeleteSongInPlaylist" buttonType="RAISED" onAction="#onActionDeletePlaylistSong" prefWidth="60.0" rippleColor="#5fd30c" text="Remove ">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+            <MFXButton fx:id="btnArrowLeft" buttonType="RAISED" onAction="#onActionAddSongToPlaylist" prefWidth="40.0" rippleColor="#5fd30c" text="⬅" />
+            <VBox alignment="CENTER" prefHeight="526.0" prefWidth="350.0">
+               <children>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Browse" textFill="WHITE">
+                           <font>
+                              <Font name="BM DoHyeon OTF" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <MFXLegacyTableView fx:id="tblSongs" minHeight="378.0" minWidth="350.0" prefHeight="378.0" prefWidth="350.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colTitle" prefWidth="87.5" text="Title" />
+                        <TableColumn fx:id="colArtists" prefWidth="87.5" text="Artists" />
+                        <TableColumn fx:id="colGenre" prefWidth="87.5" text="Genre" />
+                        <TableColumn fx:id="colTime" prefWidth="87.5" text="Time" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </MFXLegacyTableView>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <MFXButton fx:id="btnNewSong" buttonType="RAISED" onAction="#onActionNewSong" prefWidth="60.0" rippleColor="#5fd30c" text="Add Song">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnDeleteSong" buttonType="RAISED" onAction="#onActionDeleteSong" prefWidth="60.0" rippleColor="#5fd30c" text="Delete">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="14.0" prefHeight="105.0" prefWidth="1000.0">
+         <children>
+            <Pane fx:id="upperPane" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="105.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/BudgetSpotify.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="96.0" layoutY="10.0" prefHeight="68.0" prefWidth="317.0" text="Budget Spotify" textFill="WHITE">
+                     <font>
+                        <Font name="BM DoHyeon OTF" size="36.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <MFXTextField fx:id="txtSongSearch" floatMode="BORDER" graphicTextGap="5.0" layoutX="715.0" layoutY="33.0" prefHeight="39.0" prefWidth="271.0" promptText="  🔍 Search for song">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </MFXTextField>
                </children>
             </Pane>
          </children>
       </HBox>
-      <MFXButton fx:id="btnArrowLeft" buttonType="RAISED" layoutX="630.0" layoutY="425.0" onAction="#onActionAddSongToPlaylist" rippleColor="#5fd30c" text="⬅" />
    </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
 </AnchorPane>

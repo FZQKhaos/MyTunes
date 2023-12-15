@@ -4,6 +4,10 @@
 
 }
 
+#AnchorPane, #lowerPane, #upperPane
+{
+
+}
 
 #txtPlaylist, #txtSongInPlaylist, #txtSongs, #currentSong
 {
@@ -23,3 +27,4 @@
     -fx-background-radius: 100px;
 
 }
+
