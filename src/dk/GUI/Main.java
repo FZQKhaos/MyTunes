@@ -18,6 +18,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
 
         primaryStage.setTitle("Budget Spotify");
+        primaryStage.setResizable(false);
 
 
         primaryStage.show();
