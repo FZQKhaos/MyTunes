@@ -25,9 +25,9 @@ public class MainController implements Initializable {
 
     @FXML
     public Slider volumeSlider;
+
     @FXML
     public Button btnPlayPause, btnLeftSkip, btnRightSkip, btnEditPlaylist;
-
 
 
     @FXML
@@ -44,12 +44,6 @@ public class MainController implements Initializable {
 
     @FXML
     private TableColumn<Playlist, String> colPName;
-
-    @FXML
-    private TableColumn<Playlist, Integer> colPSongs;
-
-    @FXML
-    private TableColumn<Playlist, Integer> colPTime;
 
     @FXML
     private ProgressBar pbSongTimer;
@@ -204,11 +198,6 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void onActionDownArrow(ActionEvent event) {
-
-    }
-
-    @FXML
     public void onActionEditPlaylist(ActionEvent event) throws IOException {
         Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
 
@@ -331,7 +320,6 @@ public class MainController implements Initializable {
     }
 
 
-
     private void playNextSong() {
         if (!songModel.getObservableSongs().isEmpty() && currentSongIndex < songModel.getObservableSongs().size() - 1) {
             currentSongIndex++;
@@ -345,12 +333,6 @@ public class MainController implements Initializable {
     }
 
 
-
-    @FXML
-    public void onActionUpArrow(ActionEvent event) {
-
-    }
-
     //Tilføjelse af en sang til TableView
     public void addSongToTable(Song song){ //den metode tilføjer sang til TableView
         tblSongs.getItems().add(song);
@@ -359,6 +341,8 @@ public class MainController implements Initializable {
     public void addPlaylistToTable(Playlist playlist){
         tblPlaylist.getItems().add(playlist);
     }
+
+
 
 }
 

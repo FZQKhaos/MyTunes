@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/View/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/View/MainWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +201,10 @@
       <workItem from="1702497263299" duration="428000" />
       <workItem from="1702540624646" duration="2413000" />
       <workItem from="1702546227507" duration="7137000" />
-      <workItem from="1702636655682" duration="1169000" />
+      <workItem from="1702636655682" duration="2824000" />
+      <workItem from="1702639993172" duration="1291000" />
+      <workItem from="1702852172316" duration="993000" />
+      <workItem from="1702886696983" duration="2195000" />
     </task>
     <servers />
   </component>
