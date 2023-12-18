@@ -20,15 +20,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class MainController implements Initializable {
 
     @FXML
-    public Slider volumeSlider;
+    private Slider volumeSlider;
 
     @FXML
-    public Button btnPlayPause, btnLeftSkip, btnRightSkip, btnEditPlaylist;
-
+    private Button btnPlayPause, btnLeftSkip, btnRightSkip, btnEditPlaylist;
 
     @FXML
     private TableColumn<Song, String> colTitle;
@@ -78,7 +76,6 @@ public class MainController implements Initializable {
 
     private int currentSongIndex = 0;
 
-
     public MainController() {
         try {
             songModel = new SongModel();
@@ -100,7 +97,6 @@ public class MainController implements Initializable {
         colPName.setCellValueFactory(new PropertyValueFactory<>("Name"));
 
         colTitleSiP.setCellValueFactory(new PropertyValueFactory<>("Title"));
-
 
         tblSongs.setItems(songModel.getObservableSongs());
         tblPlaylist.setItems(playlistModel.getObservablePlaylists());
@@ -136,7 +132,6 @@ public class MainController implements Initializable {
         btnRightSkip.setOnAction(event -> playNextSong());
 
         currentSong.textProperty().bind(currentSongDetails);
-
     }
 
     public void setPlaylistController (NewPlaylistController controller){
@@ -169,6 +164,7 @@ public class MainController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
     @FXML
     public void onActionDeletePlaylist(ActionEvent event) {
         Playlist selectedPlaylist = tblPlaylist.getSelectionModel().getSelectedItem();
@@ -214,6 +210,8 @@ public class MainController implements Initializable {
 
             NewPlaylistController newPlaylistController = loader.getController();
             newPlaylistController.setMainController(this);
+
+            //Edit playlist
             newPlaylistController.setShouldEdit(true, selectedPlaylist);
 
             setPlaylistController(newPlaylistController);
@@ -231,7 +229,6 @@ public class MainController implements Initializable {
         tblPlaylist.refresh();
     }
 
-
     @FXML
     public void onActionNewSong(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/NewSongWindow.fxml"));
@@ -248,14 +245,10 @@ public class MainController implements Initializable {
         stage.show();
     }
 
-
-
     @FXML
     public void onActionLeftSkip(ActionEvent event) {
         playPreviousSong();
     }
-
-
 
     @FXML
     public void onActionNewPlaylist(ActionEvent event) throws IOException {
@@ -271,7 +264,6 @@ public class MainController implements Initializable {
 
         stage.show();
     }
-
 
     @FXML
     public void onActionPlayPause(ActionEvent event) {
@@ -299,8 +291,6 @@ public class MainController implements Initializable {
 
     }
 
-
-
     private void playSong (Song song){
         currentSongIndex = songModel.getObservableSongs().indexOf(song);
         if (song != null && mediaPlayer != null){
@@ -310,7 +300,6 @@ public class MainController implements Initializable {
             btnPlayPause.setText("⏸");
         }
     }
-
 
     private void playPreviousSong(){
         if (!songModel.getObservableSongs().isEmpty() && currentSongIndex > 0) {
@@ -341,8 +330,5 @@ public class MainController implements Initializable {
     public void addPlaylistToTable(Playlist playlist){
         tblPlaylist.getItems().add(playlist);
     }
-
-
-
 }
 

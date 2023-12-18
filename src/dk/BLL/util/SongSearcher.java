@@ -7,6 +7,18 @@ import java.util.List;
 
 public class SongSearcher {
 
+    /**
+     * Used to search for either a song or artist name
+     *
+     * @param searchBase
+     * What list we search in
+     *
+     * @param query
+     * The name of a song or artist we search for
+     *
+     * @return
+     * returns the songs or artists with the same or similar name/title
+     */
 
 public List<Song> search(List<Song> searchBase, String query){
     List<Song> searchResult = new ArrayList<>();

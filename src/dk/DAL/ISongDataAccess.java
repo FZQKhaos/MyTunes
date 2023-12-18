@@ -10,7 +10,5 @@ public interface ISongDataAccess {
 
     public Song createSong(Song song) throws Exception;
 
-    public void updateSong(Song song);
-
     public void deleteSong(Song song);
 }

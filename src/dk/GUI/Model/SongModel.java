@@ -5,18 +5,12 @@ import dk.BLL.SongManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 public class SongModel {
 
     private ObservableList<Song> songsToBeViewed;
-    private ObservableList<Song> songsList;
-    private ObservableList<Song> songsInPlaylistList;
-
-
 
     private SongManager songManager;
 
@@ -25,7 +19,6 @@ public class SongModel {
         songsToBeViewed = FXCollections.observableArrayList();
         songsToBeViewed.addAll(songManager.getAllSongs());
     }
-
 
     public ObservableList<Song> getObservableSongs(){
         return songsToBeViewed;
@@ -44,13 +37,10 @@ public class SongModel {
         } catch (Exception e) {
             System.out.println("Tiden er ikke korrekt");
             return;
-            //throw new Exception("Tiden er ikke korrekt", e);
-           // throws new IOException(e);
         }
         Song song = new Song(title, artist, newTime, filePath, genre);
         songManager.createSong(song);
         songsToBeViewed.add(song);
-
     }
 
     public void deleteSong(Song selectedSong) {

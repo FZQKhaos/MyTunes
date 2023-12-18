@@ -21,7 +21,6 @@ public class PlaylistModel {
         playlistManager = new PlaylistManager();
         playlistsToBeViewed = FXCollections.observableArrayList();
         playlistsToBeViewed.addAll(playlistManager.getAllPlaylists());
-
     }
 
     public ObservableList<Playlist> getObservablePlaylists(){
@@ -48,7 +47,6 @@ public class PlaylistModel {
         songsInPlaylistToBeViewed.addAll(songsList);
     }
 
-
     public void createPlaylist(String name){
         Playlist playlist = new Playlist(name);
         playlistManager.createPlaylist(playlist);
@@ -70,12 +68,6 @@ public class PlaylistModel {
 
     public void deletePlaylistSong(Playlist selectedPlaylist, Song selectedSonginPlaylist) {
         songsInPlaylistToBeViewed = FXCollections.observableArrayList();
-        /*
-        if (songsInPlaylistToBeViewed == null){
-            return;
-            //System.out.println("PlaylistModel1");
-        }
-        */
         playlistManager.deletePlaylistSong(selectedPlaylist, selectedSonginPlaylist);
         songsInPlaylistToBeViewed.remove(selectedSonginPlaylist);
     }

@@ -16,7 +16,6 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
     public PlaylistDAO_DB() throws IOException {
         databaseConnector = new DatabaseConnector();
-
     }
 
     @Override
@@ -112,7 +111,6 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             throw new RuntimeException(e);
         }
     }
-
 
     public void addSongsToPlaylist(Song song, Playlist playlist) {
 

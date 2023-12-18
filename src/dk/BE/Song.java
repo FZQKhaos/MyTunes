@@ -2,11 +2,8 @@ package dk.BE;
 
 public class Song {
 
-    private String title;
-    private String artist, filePath;
-    private int time;
-    private String genre;
-    private int id;
+    private String title, artist, filePath, genre;
+    private int time, id;
 
     public Song(String title, int id, String artist, int time, String genre, String filePath) {
         this.title = title;
@@ -37,6 +34,7 @@ public class Song {
         this.title = title;
     }
 
+
     public String getArtist() {
         return artist;
     }
@@ -48,6 +46,11 @@ public class Song {
     public String getFilePath() {
         return filePath;
     }
+
+    /**
+     *  Changes time from seconds to minutes:seconds
+     *  Ex: 02:35
+     */
 
     public String getTimeString() {
 

@@ -17,8 +17,9 @@ public class NewPlaylistController implements Initializable{
 
     @FXML
     public TextField txtPlaylistName;
+
     @FXML
-    public Button btnSave, btnCancel;
+    private Button btnSave, btnCancel;
 
     private PlaylistModel playlistModel;
 
@@ -36,6 +37,8 @@ public class NewPlaylistController implements Initializable{
         }
 
     }
+
+
     public void setShouldEdit(boolean shouldEdit, Playlist playlist) {
         this.shouldEdit = shouldEdit;
         txtPlaylistToEdit = playlist;
@@ -51,6 +54,8 @@ public class NewPlaylistController implements Initializable{
 
         Stage stage = (Stage) btnSave.getScene().getWindow();
 
+
+    //To save and update the edited name of the playlist, if edit playlist btn is selected
         if (shouldEdit){
             playlistModel.updatePlaylist(txtPlaylistToEdit, name);
             mainController.updatePlaylistTable();

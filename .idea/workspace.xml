@@ -6,8 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BE/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BLL/util/SongSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BLL/util/SongSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/DatabaseConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/PlaylistDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/DB/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/DB/SongDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/IPlaylistDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/IPlaylistDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/DAL/ISongDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/SongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/SongModel.java" afterDir="false" />
+    </list>
+    <list id="c17ea1a9-e865-470f-9800-0471f3cea78b" name="Changes by Jowana" comment="">
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java" afterDir="false" />
+    </list>
+    <list id="0a044143-9bad-4e3a-9fba-db28470140c2" name="Changes by nikolaj" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/CSS/MainWindow.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/MainWindow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/BE/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/BE/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +93,85 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/dk/GUI/Controller/NewSongController.java">
+      <ranges>
+        <range start1="2" end1="6" start2="2" end2="2" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="32" end1="33" start2="28" end2="30" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="34" end1="35" start2="31" end2="32" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="36" end1="37" start2="33" end2="35" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="55" end1="55" start2="53" end2="56" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="62" end1="63" start2="63" end2="65" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="70" end1="71" start2="72" end2="73" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="84" end1="86" start2="86" end2="87" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="87" end1="91" start2="88" end2="91" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="96" end1="97" start2="96" end2="96" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="98" end1="99" start2="97" end2="98" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="111" end1="112" start2="110" end2="111" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="116" end1="120" start2="115" end2="115" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/dk/GUI/Controller/MediaPlayer.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="5" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="13" end1="15" start2="14" end2="14" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="17" end1="17" start2="16" end2="18" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="18" end1="18" start2="19" end2="20" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="19" end1="20" start2="21" end2="21" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="21" end1="21" start2="22" end2="25" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="22" end1="22" start2="26" end2="27" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="24" end1="25" start2="29" end2="29" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="34" end1="38" start2="38" end2="40" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="39" end1="41" start2="41" end2="41" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="53" end1="54" start2="53" end2="54" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="59" end1="60" start2="59" end2="60" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="78" end1="78" start2="78" end2="84" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="103" end1="103" start2="109" end2="112" changelist="c17ea1a9-e865-470f-9800-0471f3cea78b" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/dk/BE/Song.java">
+      <ranges>
+        <range start1="4" end1="9" start2="4" end2="6" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="38" end1="38" start2="35" end2="36" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="51" end1="51" start2="49" end2="54" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/dk/GUI/Controller/NewPlaylistController.java">
+      <ranges>
+        <range start1="19" end1="19" start2="19" end2="20" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="20" end1="21" start2="21" end2="22" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="38" end1="38" start2="39" end2="41" changelist="c17ea1a9-e865-470f-9800-0471f3cea78b" />
+        <range start1="53" end1="53" start2="56" end2="58" changelist="c17ea1a9-e865-470f-9800-0471f3cea78b" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/dk/GUI/Model/PlaylistModel.java">
+      <ranges>
+        <range start1="23" end1="24" start2="23" end2="23" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="50" end1="51" start2="49" end2="49" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="72" end1="78" start2="70" end2="70" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/dk/GUI/Controller/MainController.java">
+      <ranges>
+        <range start1="21" end1="22" start2="21" end2="21" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="26" end1="27" start2="25" end2="26" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="29" end1="30" start2="28" end2="29" changelist="0a044143-9bad-4e3a-9fba-db28470140c2" />
+        <range start1="31" end1="32" start2="30" end2="30" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="80" end1="81" start2="78" end2="78" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="103" end1="104" start2="100" end2="100" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="138" end1="139" start2="134" end2="134" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="171" end1="171" start2="166" end2="167" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="216" end1="216" start2="212" end2="214" changelist="c17ea1a9-e865-470f-9800-0471f3cea78b" />
+        <range start1="232" end1="233" start2="230" end2="230" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="249" end1="251" start2="246" end2="246" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="257" end1="259" start2="252" end2="252" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="274" end1="275" start2="267" end2="267" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="301" end1="303" start2="293" end2="293" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="312" end1="313" start2="302" end2="302" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+        <range start1="343" end1="346" start2="332" end2="332" changelist="c7ed7ff1-439b-4eeb-85ef-d3c5a6173d4e" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -204,7 +307,7 @@
       <workItem from="1702636655682" duration="2824000" />
       <workItem from="1702639993172" duration="1291000" />
       <workItem from="1702852172316" duration="993000" />
-      <workItem from="1702886696983" duration="2195000" />
+      <workItem from="1702886696983" duration="6453000" />
     </task>
     <servers />
   </component>

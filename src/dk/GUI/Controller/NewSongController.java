@@ -1,9 +1,5 @@
 package dk.GUI.Controller;
 
-
-
-
-
 import com.mpatric.mp3agic.ID3v2;
 import com.mpatric.mp3agic.InvalidDataException;
 import com.mpatric.mp3agic.Mp3File;
@@ -30,11 +26,13 @@ import java.util.ResourceBundle;
 public class NewSongController implements Initializable {
 
     @FXML
-    public Button btnCancel;
-    @FXML
-    public TextField txtTitle, txtArtist, txtTime, txtFile;
+    private Button btnCancel;
 
-    public MenuButton btnGenre;
+    @FXML
+    private TextField txtTitle, txtArtist, txtTime, txtFile;
+
+    @FXML
+    private MenuButton btnGenre;
 
     private MainController mainController;
 
@@ -53,6 +51,9 @@ public class NewSongController implements Initializable {
 
     }
 
+    /**
+     * File chooser, which is used to select songs from your computer.
+     */
     public void onActionChoose(ActionEvent event) throws InvalidDataException, UnsupportedTagException, IOException {
         Stage stage = new Stage();
 
@@ -60,7 +61,8 @@ public class NewSongController implements Initializable {
             fileChooser.setTitle("Open Resource File");
             fileChooser.setInitialDirectory(new File("Songs"));
             fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.m4a"));
+                    //Determine which file extensions is allowed while inserting a file.
+                    new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3"));
 
             File file = fileChooser.showOpenDialog(stage);
 
@@ -68,7 +70,7 @@ public class NewSongController implements Initializable {
 
                 Mp3File mp3file = new Mp3File(file.getAbsolutePath());
 
-
+                //This is used with the "mp3agic" library. Which allows us to collect metadata from mp3 files.
                 if (mp3file.hasId3v2Tag()) {
                     ID3v2 metaData = mp3file.getId3v2Tag();
 
@@ -82,21 +84,18 @@ public class NewSongController implements Initializable {
             }
     }
 
-
-
+    //Save button to save the new songs
     public void onActionSave(ActionEvent event) throws Exception {
-        //public TextField txtTitle, txtArtist, txtTime, txtFile;
-        //public Song(String title, String artistName, int time, String genreName)
-        //Song song = new Song(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), );
-        songModel.createSong(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), "genre", txtFile.getText());
+        //create a song and collect data from different user input field
+        songModel.createSong(txtTitle.getText(), txtArtist.getText(), txtTime.getText(), btnGenre.getText(), txtFile.getText());
+
         String title = txtTitle.getText();
         String artist = txtArtist.getText();
         int time = Integer.parseInt(txtTime.getText());
         String file = txtFile.getText();
 
-        //når der oprettes ny sang og tilføjes til tabellen i MainController
         Song newSong = new Song(title,artist,time,file,btnGenre.getText());
-        mainController.addSongToTable(newSong); //opdatering af tableView i MainController
+        mainController.addSongToTable(newSong);
 
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
@@ -109,14 +108,10 @@ public class NewSongController implements Initializable {
     }
 
     public void OnActionGenre(ActionEvent event) {
-
+        //Takes the selected genre in the menu item, and
         MenuItem selectedGenre = (MenuItem) event.getSource();
             String genreName = selectedGenre.getText();
             btnGenre.setText(genreName);
         }
-
-
-
-
 }
 

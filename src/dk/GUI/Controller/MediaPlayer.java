@@ -2,6 +2,7 @@ package dk.GUI.Controller;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
@@ -12,16 +13,19 @@ import java.io.File;
 
 public class MediaPlayer {
 
-
-
     private javafx.scene.media.MediaPlayer mediaPlayer;
+
+    // Using file separator, so the filepath can be found on both Macbook & Windows.
     private String folder = "Songs" + File.separator;
+
     private boolean isPlaying = false;
-    private String curretSongFilePath = "";
 
+    private String currentSongFilePath = "";
+
+    @FXML
     private Label lblSongTimer;
+    @FXML
     private ProgressBar pbSongTimer;
-
 
     public MediaPlayer() {
     }
@@ -32,13 +36,9 @@ public class MediaPlayer {
     }
 
     /**
-     * Skift filePath i DB til kun at være navn.mp3
-     * Eksempel
-     * C:\Users\Brugernavn\Desktop\Mappe1\Mappe2\7 Years.mp3 - Forkert
-     * 7 Years.mp3 - rigtigt
+     * @param filePath
+     * Get the filePath of a song from the MainController and either plays the song or pauses it
      */
-
-
     public void playMusic(String filePath){
 
         File mediaFile = new File(folder + filePath);
@@ -51,13 +51,13 @@ public class MediaPlayer {
             }
 
             Media media = new Media(mediaFile.toURI().toString());
-            if (mediaPlayer == null || !filePath.equals(curretSongFilePath)) {
+            if (mediaPlayer == null || !filePath.equals(currentSongFilePath)) {
                 mediaPlayer = new javafx.scene.media.MediaPlayer(media);
             }
 
             mediaPlayer.play();
             isPlaying = true;
-            curretSongFilePath = filePath;
+            currentSongFilePath = filePath;
         } else {
             if (mediaPlayer != null) {
                 mediaPlayer.pause();
@@ -76,6 +76,12 @@ public class MediaPlayer {
         return isPlaying;
     }
 
+    /**
+     * @param lblSongTimer
+     * Updates the label to match the duration of the current song
+     *
+     * Updating the progressBar to match the length of the current song
+     */
     public void duration(Label lblSongTimer){
         ReadOnlyObjectProperty<Duration> currentTime = mediaPlayer.currentTimeProperty();
 
@@ -101,6 +107,9 @@ public class MediaPlayer {
         return formatedTime;
     }
 
+    /**
+     * Controlling the volume of the song
+     */
     public void volumeBar(Slider volumeSlider){
         volumeSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
             if (mediaPlayer != null){

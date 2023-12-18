@@ -1,27 +1,24 @@
-.root
+/* Sets the background color for the AnchorPane. */
+#AnchorPane
 {
     -fx-background-color: #343434;
 
 }
 
-#AnchorPane, #lowerPane, #upperPane
-{
-
-}
-
+/* Makes the text white */
 #txtPlaylist, #txtSongInPlaylist, #txtSongs, #currentSong
 {
     -fx-fill: white;
     -fx-text-fill: white;
 }
 
-
+/* Sets the color for the pane used in top & bottom */
 #upperPane, #lowerPane
 {
     -fx-background-color: #3e3e3e;
 }
 
-
+/* Makes the play/pause, right skip & left skip bottoms round */
 #btnLeftSkip, #btnPlayPause, #btnRightSkip
 {
     -fx-background-radius: 100px;
